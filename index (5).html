@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"><head>
+<html lang="en" class="scroll-smooth">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editorial Archive &amp; Script Studio | Sustainability &amp; World Events</title>
@@ -15,15 +16,15 @@
       theme: {
         extend: {
           colors: {
-            forest: '#0E1511',      // deepest canopy shade — page background
-            moss: '#16211A',        // card & panel surfaces
+            forest: '#0E1511',
+            moss: '#16211A',
             mossHover: '#1E2C22',
-            parchment: '#ECE6D3',   // warm paper — light surfaces & primary buttons
-            lichen: '#B5C48C',      // primary accent — sage / lichen green
-            fern: '#6F8F5B',        // secondary leaf green
-            clay: '#C98B5B',        // warm earth accent, used sparingly
-            cream: '#F1EEE2',       // primary text on dark
-            stone: '#9BA595',       // muted body text
+            parchment: '#ECE6D3',
+            lichen: '#B5C48C',
+            fern: '#6F8F5B',
+            clay: '#C98B5B',
+            cream: '#F1EEE2',
+            stone: '#9BA595',
             hairline: 'rgba(181, 196, 140, 0.16)'
           },
           fontFamily: {
@@ -47,12 +48,10 @@
       overflow-x: hidden;
     }
 
-    /* Soft, warm serif — Fraunces "SOFT" axis rounds the letterforms like worn river stone */
     .font-serif {
       font-variation-settings: "SOFT" 70;
     }
 
-    /* Fine paper grain over the whole page for an organic, printed feel */
     body::after {
       content: "";
       position: fixed;
@@ -69,7 +68,6 @@
       color: #0E1511;
     }
 
-    /* Moss-toned scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -90,7 +88,6 @@
       outline-offset: 3px;
     }
 
-    /* Frosted "morning mist" panel */
     .glass-card {
       background: rgba(18, 28, 21, 0.62);
       backdrop-filter: blur(14px) saturate(1.2);
@@ -106,50 +103,6 @@
       border-color: rgba(181, 196, 140, 0.45);
     }
 
-    /* Organic leaf silhouettes: two opposite corners swept wide */
-    .leaf-frame {
-      border-radius: clamp(56px, 9vw, 140px) 22px clamp(56px, 9vw, 140px) 22px;
-    }
-    .leaf-card {
-      border-radius: 34px 14px 34px 14px;
-    }
-
-    /* Section eyebrow labels sprout a small leaf */
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 0.7rem;
-      height: 0.7rem;
-      flex-shrink: 0;
-      background: currentColor;
-      border-radius: 0 100% 0 100%;
-      opacity: 0.9;
-    }
-
-    /* Topographic contour lines (drawn in the background of select sections) */
-    .topo {
-      position: relative;
-      isolation: isolate;
-    }
-    .topo::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image: var(--topo-lines);
-      background-size: cover;
-      background-position: center;
-      opacity: 0.55;
-      -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 85%);
-      mask-image: radial-gradient(ellipse at center, #000 30%, transparent 85%);
-    }
-
-    /* Screenplay / Script formatting blocks inside the reader */
     .script-cue {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
@@ -170,65 +123,26 @@
       font-variation-settings: "SOFT" 100, "opsz" 144;
       text-shadow: 0 10px 60px rgba(0, 0, 0, 0.35);
     }
-
-    /* Slow, breathing drift on the forest hero */
-    .hero-photo {
-      transform: scale(1.06);
-      animation: canopy-breathe 32s ease-in-out infinite alternate;
-    }
-    @keyframes canopy-breathe {
-      from { transform: scale(1.06) translate3d(0, 0, 0); }
-      to   { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
-    }
-
-    /* Drifting pollen / fireflies caught in the light */
-    .pollen span {
-      position: absolute;
-      bottom: -12px;
-      left: var(--x);
-      width: var(--s, 3px);
-      height: var(--s, 3px);
-      border-radius: 9999px;
-      background: #E4E9B8;
-      box-shadow: 0 0 10px 2px rgba(214, 226, 150, 0.55);
-      opacity: 0;
-      animation: pollen-rise var(--d, 18s) linear infinite;
-      animation-delay: var(--delay, 0s);
-    }
-    @keyframes pollen-rise {
-      0%   { transform: translate3d(0, 0, 0); opacity: 0; }
-      12%  { opacity: 0.85; }
-      50%  { transform: translate3d(24px, -42vh, 0); opacity: 0.5; }
-      80%  { opacity: 0.8; }
-      100% { transform: translate3d(-18px, -84vh, 0); opacity: 0; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-photo, .pollen span { animation: none; }
-      .pollen { display: none; }
-      html { scroll-behavior: auto; }
-    }
   </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Plus Jakarta Sans", system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:"JetBrains Mono", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-4{bottom:1rem}.bottom-6{bottom:1.5rem}.left-3{left:0.75rem}.left-4{left:1rem}.right-6{right:1.5rem}.top-0{top:0px}.top-3{top:0.75rem}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.z-\[100\]{z-index:100}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.my-auto{margin-top:auto;margin-bottom:auto}.mb-10{margin-bottom:2.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-9{margin-bottom:2.25rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.-mt-8{margin-top:-2rem}.mb-1\.5{margin-bottom:0.375rem}.mb-3{margin-bottom:0.75rem}.mt-7{margin-top:1.75rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.line-clamp-3{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[16\/10\]{aspect-ratio:16/10}.aspect-\[16\/11\]{aspect-ratio:16/11}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-\[21\/9\]{aspect-ratio:21/9}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-2\.5{height:0.625rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[1px\]{height:1px}.h-full{height:100%}.min-h-\[195px\]{min-height:195px}.min-h-\[84vh\]{min-height:84vh}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-2\.5{width:0.625rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-\[145px\]{min-width:145px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-\[1440px\]{max-width:1440px}.max-w-\[230px\]{max-width:230px}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-5xl{max-width:64rem}.shrink-0{flex-shrink:0}.translate-y-4{--tw-translate-y:1rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.rounded-2xl{border-radius:1rem}.rounded-\[22px\]{border-radius:22px}.rounded-\[24px\]{border-radius:24px}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.rounded-t-\[26px\]{border-top-left-radius:26px;border-top-right-radius:26px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-forest\/20{border-color:rgb(14 21 17 / 0.2)}.border-forest\/30{border-color:rgb(14 21 17 / 0.3)}.border-lichen\/10{border-color:rgb(181 196 140 / 0.1)}.border-lichen\/15{border-color:rgb(181 196 140 / 0.15)}.border-lichen\/20{border-color:rgb(181 196 140 / 0.2)}.border-lichen\/25{border-color:rgb(181 196 140 / 0.25)}.border-lichen\/35{border-color:rgb(181 196 140 / 0.35)}.border-lichen\/40{border-color:rgb(181 196 140 / 0.4)}.border-lichen{--tw-border-opacity:1;border-color:rgb(181 196 140 / var(--tw-border-opacity, 1))}.border-red-500\/20{border-color:rgb(239 68 68 / 0.2)}.border-transparent{border-color:transparent}.bg-emerald-700{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.bg-forest{--tw-bg-opacity:1;background-color:rgb(14 21 17 / var(--tw-bg-opacity, 1))}.bg-forest\/80{background-color:rgb(14 21 17 / 0.8)}.bg-forest\/90{background-color:rgb(14 21 17 / 0.9)}.bg-lichen{--tw-bg-opacity:1;background-color:rgb(181 196 140 / var(--tw-bg-opacity, 1))}.bg-lichen\/15{background-color:rgb(181 196 140 / 0.15)}.bg-lichen\/40{background-color:rgb(181 196 140 / 0.4)}.bg-moss{--tw-bg-opacity:1;background-color:rgb(22 33 26 / var(--tw-bg-opacity, 1))}.bg-moss\/25{background-color:rgb(22 33 26 / 0.25)}.bg-moss\/30{background-color:rgb(22 33 26 / 0.3)}.bg-moss\/95{background-color:rgb(22 33 26 / 0.95)}.bg-parchment{--tw-bg-opacity:1;background-color:rgb(236 230 211 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-forest\/70{--tw-gradient-from:rgb(14 21 17 / 0.7) var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 21 17 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-forest\/75{--tw-gradient-from:rgb(14 21 17 / 0.75) var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 21 17 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-moss{--tw-gradient-from:#16211A var(--tw-gradient-from-position);--tw-gradient-to:rgb(22 33 26 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-forest\/35{--tw-gradient-to:rgb(14 21 17 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(14 21 17 / 0.35) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-forest{--tw-gradient-to:#0E1511 var(--tw-gradient-to-position)}.to-forest\/30{--tw-gradient-to:rgb(14 21 17 / 0.3) var(--tw-gradient-to-position)}.to-forest\/65{--tw-gradient-to:rgb(14 21 17 / 0.65) var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.object-center{object-position:center}.p-3{padding:0.75rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-4{padding:1rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-1{padding-bottom:0.25rem}.pb-10{padding-bottom:2.5rem}.pb-3{padding-bottom:0.75rem}.pb-5{padding-bottom:1.25rem}.pb-6{padding-bottom:1.5rem}.pl-4{padding-left:1rem}.pl-5{padding-left:1.25rem}.pl-6{padding-left:1.5rem}.pr-2{padding-right:0.5rem}.pr-2\.5{padding-right:0.625rem}.pt-10{padding-top:2.5rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pb-12{padding-bottom:3rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:"JetBrains Mono", monospace}.font-sans{font-family:"Plus Jakarta Sans", system-ui, sans-serif}.font-serif{font-family:Fraunces, Georgia, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.leading-\[1\.85\]{line-height:1.85}.tracking-\[0\.08em\]{letter-spacing:0.08em}.tracking-\[0\.14em\]{letter-spacing:0.14em}.tracking-\[0\.22em\]{letter-spacing:0.22em}.tracking-\[0\.25em\]{letter-spacing:0.25em}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.38em\]{letter-spacing:0.38em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-cream{--tw-text-opacity:1;color:rgb(241 238 226 / var(--tw-text-opacity, 1))}.text-cream\/80{color:rgb(241 238 226 / 0.8)}.text-cream\/85{color:rgb(241 238 226 / 0.85)}.text-cream\/90{color:rgb(241 238 226 / 0.9)}.text-forest{--tw-text-opacity:1;color:rgb(14 21 17 / var(--tw-text-opacity, 1))}.text-forest\/70{color:rgb(14 21 17 / 0.7)}.text-forest\/80{color:rgb(14 21 17 / 0.8)}.text-lichen{--tw-text-opacity:1;color:rgb(181 196 140 / var(--tw-text-opacity, 1))}.text-lichen\/90{color:rgb(181 196 140 / 0.9)}.text-parchment{--tw-text-opacity:1;color:rgb(236 230 211 / var(--tw-text-opacity, 1))}.text-stone{--tw-text-opacity:1;color:rgb(155 165 149 / var(--tw-text-opacity, 1))}.text-stone\/80{color:rgb(155 165 149 / 0.8)}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.accent-lichen{accent-color:#B5C48C}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.brightness-90{--tw-brightness:brightness(.9);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.brightness-\[0\.58\]{--tw-brightness:brightness(0.58);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.contrast-\[1\.08\]{--tw-contrast:contrast(1.08);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-sm{--tw-drop-shadow:drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.selection\:bg-lichen *::selection{--tw-bg-opacity:1;background-color:rgb(181 196 140 / var(--tw-bg-opacity, 1))}.selection\:text-forest *::selection{--tw-text-opacity:1;color:rgb(14 21 17 / var(--tw-text-opacity, 1))}.selection\:bg-lichen::selection{--tw-bg-opacity:1;background-color:rgb(181 196 140 / var(--tw-bg-opacity, 1))}.selection\:text-forest::selection{--tw-text-opacity:1;color:rgb(14 21 17 / var(--tw-text-opacity, 1))}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-forest:hover{--tw-border-opacity:1;border-color:rgb(14 21 17 / var(--tw-border-opacity, 1))}.hover\:bg-cream:hover{--tw-bg-opacity:1;background-color:rgb(241 238 226 / var(--tw-bg-opacity, 1))}.hover\:bg-lichen:hover{--tw-bg-opacity:1;background-color:rgb(181 196 140 / var(--tw-bg-opacity, 1))}.hover\:bg-moss:hover{--tw-bg-opacity:1;background-color:rgb(22 33 26 / var(--tw-bg-opacity, 1))}.hover\:bg-mossHover:hover{--tw-bg-opacity:1;background-color:rgb(30 44 34 / var(--tw-bg-opacity, 1))}.hover\:bg-parchment:hover{--tw-bg-opacity:1;background-color:rgb(236 230 211 / var(--tw-bg-opacity, 1))}.hover\:bg-red-900\/70:hover{background-color:rgb(127 29 29 / 0.7)}.hover\:text-cream:hover{--tw-text-opacity:1;color:rgb(241 238 226 / var(--tw-text-opacity, 1))}.hover\:text-forest:hover{--tw-text-opacity:1;color:rgb(14 21 17 / var(--tw-text-opacity, 1))}.hover\:text-lichen:hover{--tw-text-opacity:1;color:rgb(181 196 140 / var(--tw-text-opacity, 1))}.focus\:border-lichen:focus{--tw-border-opacity:1;border-color:rgb(181 196 140 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-lichen\/60{border-color:rgb(181 196 140 / 0.6)}.group:hover .group-hover\:bg-parchment{--tw-bg-opacity:1;background-color:rgb(236 230 211 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-forest{--tw-text-opacity:1;color:rgb(14 21 17 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-lichen{--tw-text-opacity:1;color:rgb(181 196 140 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:absolute{position:absolute}.sm\:-bottom-5{bottom:-1.25rem}.sm\:-left-5{left:-1.25rem}.sm\:my-10{margin-top:2.5rem;margin-bottom:2.5rem}.sm\:my-8{margin-top:2rem;margin-bottom:2rem}.sm\:mt-0{margin-top:0px}.sm\:mt-4{margin-top:1rem}.sm\:grid{display:grid}.sm\:min-h-\[88vh\]{min-height:88vh}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:rounded-\[36px\]{border-radius:36px}.sm\:rounded-t-\[34px\]{border-top-left-radius:34px;border-top-right-radius:34px}.sm\:p-11{padding:2.75rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:p-9{padding:2.25rem}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-9{padding-left:2.25rem;padding-right:2.25rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.sm\:px-12{padding-left:3rem;padding-right:3rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:pb-0{padding-bottom:0px}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-6{grid-column:span 6 / span 6}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:flex{display:flex}.lg\:w-52{width:13rem}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:flex-col{flex-direction:column}.lg\:items-end{align-items:flex-end}.lg\:items-center{align-items:center}.lg\:justify-center{justify-content:center}.lg\:gap-10{gap:2.5rem}.lg\:gap-12{gap:3rem}.lg\:p-12{padding:3rem}.lg\:p-14{padding:3.5rem}.lg\:px-12{padding-left:3rem;padding-right:3rem}.lg\:text-\[42px\]{font-size:42px}}</style></head>
-<body class="antialiased selection:bg-lichen selection:text-forest" style="">
+</head>
+<body class="antialiased selection:bg-lichen selection:text-forest">
 
-  <!-- Toast Notification Banner (replaces alert/confirm) -->
-  <div id="toast" class="fixed bottom-6 right-6 z-[100] transform transition-all duration-300 translate-y-4 opacity-0 hidden">
+  <!-- Toast Notification Banner -->
+  <div id="toast" class="fixed bottom-6 right-6 z-[100] hidden transform transition-all duration-300 translate-y-4 opacity-0">
     <div class="bg-parchment text-forest px-5 py-3.5 rounded-2xl shadow-2xl border border-lichen/40 flex items-center gap-3">
       <span id="toast-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-700"></span>
-      <span id="toast-msg" class="text-sm font-medium">Downloaded index.html ready for public hosting</span>
+      <span id="toast-msg" class="text-sm font-medium">Action saved</span>
     </div>
   </div>
 
-  <!-- Outer Architectural Frame (Inspired by Image 1's subtle perimeter border) -->
+  <!-- Outer Architectural Frame -->
   <div class="max-w-[1440px] mx-auto px-3 sm:px-6 py-3 sm:py-5">
     <div class="rounded-[28px] sm:rounded-[36px] border border-lichen/25 bg-forest overflow-hidden shadow-2xl">
 
       <!-- =========================================================
-           HERO SECTION & FLOATING GLASS NAVIGATION (Image 1 Layout)
+           HERO SECTION & FLOATING GLASS NAVIGATION
       ========================================================== -->
       <header id="home" class="relative min-h-[84vh] sm:min-h-[88vh] flex flex-col justify-between p-5 sm:p-9 lg:p-12 overflow-hidden rounded-t-[26px] sm:rounded-t-[34px]">
-        <!-- Background Editorial Image + Moody Architectural Gradient -->
         <div class="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" onerror="this.src='https://placehold.co/1920x1080/16211A/B5C48C?text=Editorial+Archive'" alt="Minimalist sustainable architectural pavilion at dusk" class="w-full h-full object-cover object-center scale-105 filter brightness-[0.58] contrast-[1.08]">
           <div class="absolute inset-0 bg-gradient-to-b from-forest/70 via-forest/35 to-forest"></div>
@@ -237,7 +151,6 @@
 
         <!-- Floating Top Navigation Bar -->
         <nav class="relative z-20 flex items-center justify-between gap-4">
-          <!-- Brand Mark -->
           <a href="#home" class="flex items-center gap-3 group">
             <div class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-lichen font-serif text-xl font-semibold tracking-tighter group-hover:border-lichen/60 transition">
               A/E
@@ -250,7 +163,6 @@
             </div>
           </a>
 
-          <!-- Center Pill Links (Desktop) -->
           <div class="hidden lg:flex items-center gap-1.5 glass-card px-2.5 py-1.5 rounded-full">
             <a href="#home" class="px-4 py-1.5 rounded-full bg-parchment text-forest text-xs font-semibold tracking-wide transition">Home</a>
             <a href="#manifesto" class="px-4 py-1.5 rounded-full text-cream/85 hover:text-cream text-xs font-medium tracking-wide transition">Manifesto</a>
@@ -259,8 +171,11 @@
             <a href="#featured" class="px-4 py-1.5 rounded-full text-cream/85 hover:text-cream text-xs font-medium tracking-wide transition">Featured</a>
           </div>
 
-          <!-- Right Action Pill: Creator Studio Toggle -->
           <div class="flex items-center gap-2.5">
+            <span id="cloud-sync-pill" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-card font-mono text-[10px] uppercase tracking-wider text-lichen">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Live Cloud</span>
+            </span>
             <button onclick="openStudioModal()" class="flex items-center gap-2.5 bg-parchment hover:bg-cream text-forest pl-4 pr-2 py-1.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg transition transform hover:scale-[1.02] cursor-pointer">
               <span>Creator Studio</span>
               <span class="w-7 h-7 rounded-full bg-forest text-parchment flex items-center justify-center">
@@ -280,9 +195,8 @@
           </p>
         </div>
 
-        <!-- Bottom Hero Bar: Left Tagline, Center Pill CTA, Right Stacked Glass Stat Cards -->
+        <!-- Bottom Hero Bar -->
         <div class="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-4">
-          <!-- Left Editorial Statement -->
           <div class="lg:col-span-4 space-y-2.5">
             <h2 class="font-serif text-2xl sm:text-3xl text-cream leading-tight">
               Decoding climate shifts.<br>Scripting global narratives.
@@ -297,7 +211,6 @@
             </div>
           </div>
 
-          <!-- Center Pill CTA -->
           <div class="lg:col-span-4 flex lg:justify-center">
             <a href="#archive" class="inline-flex items-center gap-3 bg-parchment hover:bg-cream text-forest pl-6 pr-2.5 py-2.5 rounded-full text-sm font-semibold shadow-xl transition transform hover:-translate-y-0.5">
               <span>Explore Writings</span>
@@ -309,7 +222,6 @@
             </a>
           </div>
 
-          <!-- Right Floating Glass Stat Cards (Matching Image 1 Right Stack) -->
           <div class="lg:col-span-4 flex sm:grid sm:grid-cols-3 lg:flex lg:flex-col items-stretch lg:items-end gap-2.5 overflow-x-auto pb-1 sm:pb-0">
             <div class="glass-card rounded-2xl px-4 py-3 min-w-[145px] lg:w-52">
               <div class="font-serif text-2xl font-semibold text-cream leading-none">ESG &amp; Policy</div>
@@ -328,11 +240,10 @@
       </header>
 
       <!-- =========================================================
-           SECTION 1: EDITORIAL MANIFESTO / ABOUT (Image 1 Asymmetric Bento)
+           SECTION 1: EDITORIAL MANIFESTO / ABOUT
       ========================================================== -->
       <section id="manifesto" class="px-5 sm:px-9 lg:px-12 py-14 sm:py-20 border-t border-lichen/15">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <!-- Left Column -->
           <div class="lg:col-span-6 space-y-6">
             <div class="font-mono text-xs uppercase tracking-[0.25em] text-lichen">
               01 / EDITORIAL MANIFESTO
@@ -342,7 +253,6 @@
             </h2>
             <p id="bio-paragraph" class="text-sm sm:text-base text-stone leading-relaxed">This publication serves as an open-access journal and script repository examining the intersection of planetary sustainability, resource geopolitics, and shifting world events. Every essay and documentary script is structured to turn complex policy and environmental data into clear, human-centered storytelling.</p>
 
-            <!-- 3 Icon Pillars (Matching Image 1's 3-column icon row) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-3 border-t border-lichen/15">
               <div class="space-y-2">
                 <div class="w-9 h-9 rounded-xl bg-moss bento-border flex items-center justify-center text-lichen">
@@ -383,14 +293,12 @@
             </div>
           </div>
 
-          <!-- Right Column: Rounded Architectural Photo + Overlaid Badge Card -->
           <div class="lg:col-span-6 relative">
             <div class="relative rounded-[24px] overflow-hidden bento-border aspect-[16/11] bg-moss">
               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/1200x800/16211A/B5C48C?text=Editorial+Studio'" alt="Warm timber and concrete sustainable architectural interior" class="w-full h-full object-cover brightness-90">
               <div class="absolute inset-0 bg-gradient-to-t from-forest/75 via-transparent to-transparent"></div>
             </div>
 
-            <!-- Overlaid Floating Bento Stat Badge (Inspired by Image 1's "Since 2000" badge) -->
             <div class="sm:absolute sm:-bottom-5 sm:-left-5 mt-4 sm:mt-0 bg-moss/95 backdrop-blur-md bento-border rounded-2xl p-5 max-w-[230px] shadow-2xl">
               <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-lichen">EDITORIAL DESK</div>
               <div class="font-serif text-3xl text-cream mt-1">Open Access</div>
@@ -403,7 +311,7 @@
       </section>
 
       <!-- =========================================================
-           SECTION 2: 6-CARD CONTENT DOMAINS ROW (Image 1's 6-Card Grid)
+           SECTION 2: 6-CARD CONTENT DOMAINS ROW
       ========================================================== -->
       <section id="domains" class="px-5 sm:px-9 lg:px-12 py-14 border-t border-lichen/15 bg-moss/30">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-9">
@@ -421,7 +329,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
-          <!-- Domain 1 -->
           <button onclick="filterByCategory('Sustainability &amp; ESG')" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -435,7 +342,6 @@
             </div>
           </button>
 
-          <!-- Domain 2 -->
           <button onclick="filterByCategory('World Events')" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -449,7 +355,6 @@
             </div>
           </button>
 
-          <!-- Domain 3 -->
           <button onclick="filterByFormat('Script')" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -463,7 +368,6 @@
             </div>
           </button>
 
-          <!-- Domain 4 -->
           <button onclick="filterByCategory('Energy &amp; Resources')" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -477,7 +381,6 @@
             </div>
           </button>
 
-          <!-- Domain 5 -->
           <button onclick="filterByCategory('Policy &amp; Economics')" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -491,7 +394,6 @@
             </div>
           </button>
 
-          <!-- Domain 6 -->
           <button onclick="resetFilters()" class="text-left group bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-2xl p-5 flex flex-col justify-between min-h-[195px] transition cursor-pointer">
             <div>
               <div class="w-8 h-8 rounded-lg bg-forest/80 flex items-center justify-center text-lichen mb-4">
@@ -508,7 +410,7 @@
       </section>
 
       <!-- =========================================================
-           SECTION 3: SELECTED WRITINGS & SCRIPTS GALLERY (Image 1's 4-Column Bento)
+           SECTION 3: SELECTED WRITINGS & SCRIPTS GALLERY
       ========================================================== -->
       <section id="archive" class="px-5 sm:px-9 lg:px-12 py-14 sm:py-20 border-t border-lichen/15">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
@@ -521,7 +423,6 @@
             </h2>
           </div>
 
-          <!-- Filter Pills & Add Work Shortcut -->
           <div class="flex flex-wrap items-center gap-2">
             <button onclick="resetFilters()" id="filter-all" class="filter-pill px-4 py-2 rounded-full text-xs font-semibold bg-parchment text-forest transition cursor-pointer">
               All Works
@@ -538,231 +439,36 @@
           </div>
         </div>
 
-        <!-- Active Filter Indicator -->
         <div id="active-filter-bar" class="hidden mb-6 flex items-center justify-between bg-moss bento-border rounded-xl px-4 py-2.5 text-xs">
           <span class="text-stone">Showing filtered results for: <strong id="active-filter-label" class="text-lichen font-mono uppercase"></strong></span>
           <button onclick="resetFilters()" class="text-cream underline hover:text-lichen cursor-pointer">Clear filter</button>
         </div>
 
-        <!-- 4-Column Architectural Visual Cards Grid -->
-        <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <article onclick="openReaderModal('post-1')" class="group cursor-pointer flex flex-col justify-between bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-[22px] overflow-hidden transition duration-300 transform hover:-translate-y-1 shadow-lg">
-          <div>
-            <!-- Rounded Architectural Image Frame -->
-            <div class="relative aspect-[4/3] overflow-hidden bg-forest">
-              <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/800x600/16211A/B5C48C?text=Editorial+Piece'" alt="The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-90">
-              <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-forest/30"></div>
-              <!-- Top Format Badge -->
-              <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full glass-card text-cream">
-                  Essay
-                </span>
-              </div>
-            </div>
-
-            <!-- Card Copy -->
-            <div class="p-5 space-y-2.5">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-lichen">
-                Energy &amp; Resources
-              </div>
-              <h3 class="font-serif text-xl sm:text-2xl text-cream leading-snug group-hover:text-lichen transition line-clamp-2">
-                The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics
-              </h3>
-              <p class="text-xs text-stone leading-relaxed line-clamp-3">
-                Every wind turbine, high-voltage transmission line, and EV battery shares a single material dependency. Inside the quiet diplomatic race for critical minerals.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-lichen/10 mt-2">
-            <span class="font-mono text-[10px] text-stone">7 MIN READ</span>
-            <span class="w-7 h-7 rounded-full bg-forest border border-lichen/25 group-hover:bg-parchment group-hover:text-forest text-lichen inline-flex items-center justify-center text-xs transition">
-              →
-            </span>
-          </div>
-        </article>
-      
-        <article onclick="openReaderModal('post-2')" class="group cursor-pointer flex flex-col justify-between bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-[22px] overflow-hidden transition duration-300 transform hover:-translate-y-1 shadow-lg">
-          <div>
-            <!-- Rounded Architectural Image Frame -->
-            <div class="relative aspect-[4/3] overflow-hidden bg-forest">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/800x600/16211A/B5C48C?text=Editorial+Piece'" alt="SCRIPT: Vanishing Deltas — Life &amp; Policy on the Frontlines of Rising Seas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-90">
-              <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-forest/30"></div>
-              <!-- Top Format Badge -->
-              <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-parchment text-forest font-semibold">
-                  Script
-                </span>
-              </div>
-            </div>
-
-            <!-- Card Copy -->
-            <div class="p-5 space-y-2.5">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-lichen">
-                World Events
-              </div>
-              <h3 class="font-serif text-xl sm:text-2xl text-cream leading-snug group-hover:text-lichen transition line-clamp-2">
-                SCRIPT: Vanishing Deltas — Life &amp; Policy on the Frontlines of Rising Seas
-              </h3>
-              <p class="text-xs text-stone leading-relaxed line-clamp-3">
-                A documentary video script exploring how coastal megacities and agricultural deltas are redesigning architecture and water governance.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-lichen/10 mt-2">
-            <span class="font-mono text-[10px] text-stone">11 MIN SCRIPT</span>
-            <span class="w-7 h-7 rounded-full bg-forest border border-lichen/25 group-hover:bg-parchment group-hover:text-forest text-lichen inline-flex items-center justify-center text-xs transition">
-              →
-            </span>
-          </div>
-        </article>
-      
-        <article onclick="openReaderModal('post-3')" class="group cursor-pointer flex flex-col justify-between bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-[22px] overflow-hidden transition duration-300 transform hover:-translate-y-1 shadow-lg">
-          <div>
-            <!-- Rounded Architectural Image Frame -->
-            <div class="relative aspect-[4/3] overflow-hidden bg-forest">
-              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/800x600/16211A/B5C48C?text=Editorial+Piece'" alt="Beyond Carbon Offsets: How Corporate ESG Is Moving Toward Verified Scope 3 Action" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-90">
-              <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-forest/30"></div>
-              <!-- Top Format Badge -->
-              <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full glass-card text-cream">
-                  Essay
-                </span>
-              </div>
-            </div>
-
-            <!-- Card Copy -->
-            <div class="p-5 space-y-2.5">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-lichen">
-                Sustainability &amp; ESG
-              </div>
-              <h3 class="font-serif text-xl sm:text-2xl text-cream leading-snug group-hover:text-lichen transition line-clamp-2">
-                Beyond Carbon Offsets: How Corporate ESG Is Moving Toward Verified Scope 3 Action
-              </h3>
-              <p class="text-xs text-stone leading-relaxed line-clamp-3">
-                As regulatory scrutiny tightens across global markets, voluntary carbon credits are giving way to direct supply-chain decarbonization.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-lichen/10 mt-2">
-            <span class="font-mono text-[10px] text-stone">6 MIN READ</span>
-            <span class="w-7 h-7 rounded-full bg-forest border border-lichen/25 group-hover:bg-parchment group-hover:text-forest text-lichen inline-flex items-center justify-center text-xs transition">
-              →
-            </span>
-          </div>
-        </article>
-      
-        <article onclick="openReaderModal('post-4')" class="group cursor-pointer flex flex-col justify-between bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-[22px] overflow-hidden transition duration-300 transform hover:-translate-y-1 shadow-lg">
-          <div>
-            <!-- Rounded Architectural Image Frame -->
-            <div class="relative aspect-[4/3] overflow-hidden bg-forest">
-              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/800x600/16211A/B5C48C?text=Editorial+Piece'" alt="Maritime Chokepoints  and The New Map of Global Trade" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-90">
-              <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-forest/30"></div>
-              <!-- Top Format Badge -->
-              <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full glass-card text-cream">
-                  Essay
-                </span>
-              </div>
-            </div>
-
-            <!-- Card Copy -->
-            <div class="p-5 space-y-2.5">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-lichen">
-                Policy &amp; Economics
-              </div>
-              <h3 class="font-serif text-xl sm:text-2xl text-cream leading-snug group-hover:text-lichen transition line-clamp-2">
-                Maritime Chokepoints  and The New Map of Global Trade
-              </h3>
-              <p class="text-xs text-stone leading-relaxed line-clamp-3">
-                From the Strait of Hormuz to the Suez Canal, global trade runs on a handful of vulnerable waterways. Decarbonizing the world's fleet is how we redraw the map.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-lichen/10 mt-2">
-            <span class="font-mono text-[10px] text-stone">5 MIN READ</span>
-            <span class="w-7 h-7 rounded-full bg-forest border border-lichen/25 group-hover:bg-parchment group-hover:text-forest text-lichen inline-flex items-center justify-center text-xs transition">
-              →
-            </span>
-          </div>
-        </article>
-      </div>
+        <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
       </section>
 
       <!-- =========================================================
-           SECTION 4: FEATURED DISPATCH SPLIT BENTO (Image 1's Featured Project)
+           SECTION 4: FEATURED DISPATCH SPLIT BENTO
       ========================================================== -->
       <section id="featured" class="px-5 sm:px-9 lg:px-12 py-14 border-t border-lichen/15 bg-moss/25">
-        <div id="featured-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-        <div class="lg:col-span-5 space-y-5">
-          <div class="font-mono text-xs uppercase tracking-[0.25em] text-lichen">
-            04 / FEATURED DISPATCH
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] text-cream leading-[1.1]">
-            The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics
-          </h2>
-          <p class="text-xs sm:text-sm text-stone leading-relaxed">
-            Every wind turbine, high-voltage transmission line, and EV battery shares a single material dependency. Inside the quiet diplomatic race for critical minerals.
-          </p>
-
-          <!-- Clean Metadata Stack (Matching Image 1's Location/Type/Area bullets) -->
-          <div class="space-y-2 pt-2 border-t border-lichen/15 font-mono text-xs text-stone">
-            <div class="flex items-center gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-lichen"></span>
-              <span>Format: <strong class="text-cream font-normal">Essay</strong></span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-lichen"></span>
-              <span>Domain: <strong class="text-cream font-normal">Energy &amp; Resources</strong></span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-lichen"></span>
-              <span>Length: <strong class="text-cream font-normal">7 MIN READ</strong></span>
-            </div>
-          </div>
-
-          <div class="pt-3">
-            <button onclick="openReaderModal('post-1')" class="inline-flex items-center gap-3 bg-moss hover:bg-parchment text-cream hover:text-forest bento-border pl-5 pr-2 py-2 rounded-full text-xs font-semibold transition cursor-pointer">
-              <span>Read Full Essay</span>
-              <span class="w-7 h-7 rounded-full bg-forest text-parchment flex items-center justify-center">→</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <div onclick="openReaderModal('post-1')" class="group cursor-pointer relative rounded-[24px] overflow-hidden bento-border aspect-[16/10] bg-moss shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" onerror="this.src='https://placehold.co/1200x750/16211A/B5C48C?text=Featured+Dispatch'" alt="The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 brightness-90">
-            <div class="absolute inset-0 bg-gradient-to-t from-forest/70 via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4 glass-card px-4 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider text-cream">
-              Click to open reader view →
-            </div>
-          </div>
-        </div>
-      </div>
+        <div id="featured-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center"></div>
       </section>
 
       <!-- =========================================================
-           SECTION 5: WARM CREAM EDITORIAL SHOWCASE PANEL (Inspired by Image 2's Tango Minimal White/Cream Panel)
+           SECTION 5: WARM CREAM EDITORIAL SHOWCASE PANEL
       ========================================================== -->
       <section class="px-5 sm:px-9 lg:px-12 py-14 border-t border-lichen/15">
         <div class="rounded-[28px] bg-parchment text-forest p-7 sm:p-11 lg:p-14 shadow-2xl relative overflow-hidden">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7 space-y-4">
               <div class="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-forest/70 border border-forest/20 px-3 py-1 rounded-full">
-                <span>WRITER'S PUBLISHING WORKFLOW</span>
+                <span>CLOUD STUDIO WORKFLOW</span>
               </div>
               <h2 class="font-serif text-3xl sm:text-5xl text-forest leading-[1.08]">
-                Built for live drafting, scripting &amp; public sharing.
+                Live cloud drafting, scripting &amp; instant publishing.
               </h2>
               <p class="text-sm sm:text-base text-forest/80 max-w-2xl leading-relaxed">
-                Use the built-in <strong>Creator Studio</strong> at any time to compose new sustainability articles or formatted video/podcast scripts, update your masthead name, and export a ready-to-deploy HTML file for free public hosting.
+                Sign into <strong>Creator Studio</strong> from any device to publish new sustainability articles, documentary scripts, and references straight to your live public site—no manual HTML re-uploads required.
               </p>
               <div class="pt-3 flex flex-wrap items-center gap-3">
                 <button onclick="openStudioModal()" class="inline-flex items-center gap-3 bg-forest hover:bg-moss text-parchment pl-6 pr-2.5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer">
@@ -771,26 +477,25 @@
                 </button>
                 <button onclick="exportUpdatedSite()" class="inline-flex items-center gap-2 border border-forest/30 hover:border-forest text-forest px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
-                  <span>Download Public HTML</span>
+                  <span>Backup HTML Snapshot</span>
                 </button>
               </div>
             </div>
 
-            <!-- Right Architectural Spec Card (Inspired by Image 2's Layout Breakdown) -->
             <div class="lg:col-span-5">
               <div class="bg-forest text-cream rounded-2xl p-6 sm:p-7 space-y-4 shadow-xl">
                 <div class="flex items-center justify-between border-b border-lichen/20 pb-3">
-                  <span class="font-mono text-xs uppercase tracking-widest text-lichen">EDITION SPEC // 01</span>
-                  <span class="font-mono text-xs text-stone">PUBLIC READY</span>
+                  <span class="font-mono text-xs uppercase tracking-widest text-lichen">EDITION SPEC // 02</span>
+                  <span class="font-mono text-xs text-emerald-400">CLOUD SYNCED</span>
                 </div>
                 <div class="grid grid-cols-2 gap-4 text-xs">
                   <div>
                     <div class="font-mono text-[10px] uppercase text-stone">FORMATS</div>
-                    <div class="text-cream font-medium mt-1">Long-Form Blogs &amp; Screenplay Scripts</div>
+                    <div class="text-cream font-medium mt-1">Long-Form Blogs, Scripts &amp; Citations</div>
                   </div>
                   <div>
-                    <div class="font-mono text-[10px] uppercase text-stone">STORAGE</div>
-                    <div class="text-cream font-medium mt-1">Instant Local Save + 1-Click HTML Export</div>
+                    <div class="font-mono text-[10px] uppercase text-stone">BACKEND</div>
+                    <div class="text-cream font-medium mt-1">Firebase Firestore + Auth Gate</div>
                   </div>
                   <div>
                     <div class="font-mono text-[10px] uppercase text-stone">TOPICS</div>
@@ -798,7 +503,7 @@
                   </div>
                   <div>
                     <div class="font-mono text-[10px] uppercase text-stone">HOSTING</div>
-                    <div class="text-cream font-medium mt-1">Netlify / Cloudflare / GitHub Pages</div>
+                    <div class="text-cream font-medium mt-1">GitHub Pages (Zero Cost)</div>
                   </div>
                 </div>
               </div>
@@ -808,7 +513,7 @@
       </section>
 
       <!-- =========================================================
-           FOOTER (Matching Image 1's Rounded Dark CTA Banner & Minimal Footer)
+           FOOTER
       ========================================================== -->
       <footer class="px-5 sm:px-9 lg:px-12 pt-4 pb-10">
         <div class="bg-moss bento-border rounded-[24px] p-6 sm:p-9 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
@@ -831,7 +536,7 @@
             <span>Sustainability &amp; World Events Archive</span>
           </div>
           <div class="font-mono text-[11px] text-stone/80">
-            Designed for Editorial &amp; Script Publishing
+            Powered by GitHub Pages &amp; Firebase Cloud
           </div>
         </div>
       </footer>
@@ -840,15 +545,18 @@
   </div>
 
   <!-- =========================================================
-       DISTRACTION-FREE READER MODAL (Supports Essay & Script Formatting)
+       DISTRACTION-FREE READER MODAL (Includes Dedicated References Section)
   ========================================================== -->
-  <div id="reader-modal" class="fixed inset-0 z-50 bg-forest/90 backdrop-blur-md overflow-y-auto p-3 sm:p-6 hidden">
+  <div id="reader-modal" class="fixed inset-0 z-50 hidden bg-forest/90 backdrop-blur-md overflow-y-auto p-3 sm:p-6">
     <div class="max-w-3xl mx-auto my-4 sm:my-10 bg-moss bento-border rounded-[28px] overflow-hidden shadow-2xl">
-      <!-- Top Sticky Reader Controls -->
       <div class="sticky top-0 z-20 bg-moss/95 backdrop-blur-md border-b border-lichen/15 px-6 py-4 flex items-center justify-between gap-4">
         <div class="flex items-center gap-2.5">
-          <span id="reader-format-badge" class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-parchment text-forest font-semibold">ESSAY</span>
-          <span id="reader-category" class="font-mono text-xs text-lichen">Policy &amp; Economics</span>
+          <span id="reader-format-badge" class="font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-parchment text-forest font-semibold">
+            ESSAY
+          </span>
+          <span id="reader-category" class="font-mono text-xs text-lichen">
+            Sustainability &amp; ESG
+          </span>
         </div>
         <div class="flex items-center gap-2">
           <button id="reader-edit-btn" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-forest hover:bg-lichen hover:text-forest text-cream bento-border transition cursor-pointer">
@@ -860,41 +568,60 @@
         </div>
       </div>
 
-      <!-- Cover Banner -->
       <div class="aspect-[21/9] w-full overflow-hidden bg-forest relative">
-        <img id="reader-image" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Article Cover" class="w-full h-full object-cover brightness-90">
+        <img id="reader-image" src="" alt="Article Cover" class="w-full h-full object-cover brightness-90">
         <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-transparent"></div>
       </div>
 
-      <!-- Article / Script Content -->
       <article class="px-6 sm:px-12 pb-12 -mt-8 relative z-10">
         <div class="font-mono text-xs text-stone flex items-center gap-3 mb-3">
-          <span id="reader-date">October 2026</span>
+          <span id="reader-date">November 2026</span>
           <span>•</span>
-          <span id="reader-readtime">5 MIN READ</span>
+          <span id="reader-readtime">6 MIN READ</span>
         </div>
-        <h1 id="reader-title" class="font-serif text-3xl sm:text-5xl text-cream leading-tight">Maritime Chokepoints  and The New Map of Global Trade</h1>
-        <p id="reader-summary" class="mt-4 text-base sm:text-lg text-lichen/90 font-serif italic leading-relaxed border-b border-lichen/15 pb-6">From the Strait of Hormuz to the Suez Canal, global trade runs on a handful of vulnerable waterways. Decarbonizing the world's fleet is how we redraw the map.</p>
+        <h1 id="reader-title" class="font-serif text-3xl sm:text-5xl text-cream leading-tight">
+          Title Placeholder
+        </h1>
+        <p id="reader-summary" class="mt-4 text-base sm:text-lg text-lichen/90 font-serif italic leading-relaxed border-b border-lichen/15 pb-6">
+          Summary deck placeholder
+        </p>
 
-        <div id="reader-body" class="mt-7 space-y-5 text-sm sm:text-base text-cream/90 leading-[1.85]"><p>Roughly ninety percent of everything we buy moves across the ocean, and for years economists treated those shipping lanes like a smooth, invisible conveyor belt. Then missile attacks in late 2023 cut commercial traffic through the Bab al-Mandab Strait by more than half, right as severe drought forced the Panama Canal to cap daily vessel transits. Captains didn't just drop anchor and wait; they steered thousands of miles around the Cape of Good Hope, burning millions of extra tons of heavy bunker fuel along the way. Getting ships off fossil fuels isn't some niche green luxury—it's the only real way to break global trade's dependence on narrow, vulnerable chokepoints.</p><p>Look at what's actually sitting inside those hulls, and the whole system starts to look circular. Before the Red Sea attacks, Rystad Energy tracked roughly 71.3 million barrels of oil and petroleum products plus 26 billion cubic feet of liquefied natural gas passing daily through just five maritime chokepoints. Nearly forty percent of all seaborne cargo is coal, crude oil and gas. That means the global fleet spends nearly half its time hauling the exact fossil fuels that burn in its own engines and heat up the atmosphere. When climate-driven droughts shrink canal watersheds or regional fighting closes a strait, diesel-powered ships have to take the long way around, driving up emissions and freight bills all at once.</p><p>Geography traps us twice.</p><p>You can see what that looks like on the ground when you follow the bill down to a mid-sized textile exporter in Tiruppur or a family-run coffee roaster in Hamburg waiting three extra weeks for containers stuck below southern Africa. When maritime insurance spikes and spot container rates double overnight, giant retail chains just pass the surcharge along or lean on massive credit lines. Small business owners don't have that cushion; they watch their cash dry up while inventory floats off the coast of Namibia. Out on the water, Filipino, Indian and Ukrainian seafarers end up stuck aboard diverted tankers for extra months away from home, dealing with rougher seas and higher piracy risks because their ships can't refuel or dock on schedule. Countries bordering those passages take a direct hit too—research from the London School of Economics estimates that a prolonged closure of the Suez Canal threatens roughly eight percent of Egypt's entire GDP.</p><p>When regulators meet at the International Maritime Organization to hash out net-zero rules, the conversation usually disappears into dense spreadsheets about carbon intensity ratios and fuel levies. Strip away the technical shorthand, though, and the choice is pretty simple. Either we keep propping up a centralized, oil-dependent transit map, or we build a spread-out clean-fuel network that changes how ships move. Switching vessels over to green ammonia, e-methanol and wind-assisted propulsion cuts the roughly three percent of global emissions coming from shipping, sure. More importantly, it rewrites maritime geography. Crude oil locks geopolitical power into a few tense basins like the Strait of Hormuz, where twenty to twenty-five percent of global seaborne oil and gas has to squeeze through a thirty-mile-wide channel. Green marine fuels don't have that problem—you can make them anywhere you have steady sun, wind or hydro power.</p><p>Think about what happens to trade routes once ports in Chile, Namibia, Oman and southern India start producing zero-carbon fuel right on the coast from sunshine and seawater. Vessels wouldn't need to hug old oil-refining corridors or bet everything on single-lane waterways. Smaller coastal routes run by battery electric ships and green hydrogen could skip crowded mega-ports altogether, linking regional producers straight to nearby markets.</p><p>People inside the freight industry are quick to point out that green marine fuels currently cost two to four times more than conventional bunker oil, and they warn that strict carbon pricing will push retail prices up right away. They're not wrong about the sticker shock. Swapping out ship engines and building green-ammonia storage tanks takes billions in upfront spending at a time when household budgets are already tight. Still, sticking with cheap bunker oil is a bad bargain because it hides the real cost of volatility. Every time a strait closes or a canal dries up, emergency detours, spoiled food shipments and sudden energy spikes tack an unannounced tax onto grocery bills worldwide. Paying a steady, predictable premium now to scale clean engines beats paying for constant crisis control later.</p><p>Markets won't close that price gap on their own, so governments and port authorities have to step in. When public agencies back green shipping corridors with guaranteed purchase contracts, fuel makers can scale up and drive prices down fast. Redirecting existing fossil-fuel subsidies toward port electrification and clean bunkering stations shields local manufacturers from oil shocks while clearing toxic diesel exhaust out of port neighborhoods.</p><p>For centuries, powers rose and fell by controlling narrow stretches of water where coal and oil ships had no choice but to pass. Today, drying canals and regional conflicts are showing how fragile a bottleneck economy really is. Cleaning up the world's fleet gives us a practical way to outgrow those choke points—assuming governments treat clean port infrastructure like basic supply-chain security instead of a distant climate goal. Until zero-emission container ships start crossing the Pacific without burning a drop of crude, every shipment we count on sits one blocked canal away from stalling out.</p></div>
+        <div id="reader-body" class="mt-7 space-y-5 text-sm sm:text-base text-cream/90 leading-[1.85]">
+        </div>
+
+        <!-- Dedicated References & Sources Section -->
+        <div id="reader-references-section" class="hidden mt-10 pt-7 border-t border-lichen/20">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2 h-2 rounded-full bg-lichen"></span>
+            <h2 class="font-mono text-xs uppercase tracking-[0.22em] text-lichen">
+              References &amp; Sources
+            </h2>
+          </div>
+          <ol id="reader-references-list" class="space-y-2.5 text-xs sm:text-sm text-stone leading-relaxed list-decimal list-inside bg-forest/70 bento-border rounded-2xl p-5 sm:p-6">
+          </ol>
+        </div>
       </article>
     </div>
   </div>
 
   <!-- =========================================================
-       WRITER'S CREATOR STUDIO / DASHBOARD MODAL
+       WRITER'S CREATOR STUDIO / DASHBOARD MODAL (WITH AUTH GATE)
   ========================================================== -->
   <div id="studio-modal" class="fixed inset-0 z-50 bg-forest/90 backdrop-blur-md overflow-y-auto p-3 sm:p-6 hidden">
     <div class="max-w-5xl mx-auto my-4 sm:my-8 bg-moss bento-border rounded-[28px] overflow-hidden shadow-2xl">
       <!-- Studio Header -->
       <div class="bg-forest/80 border-b border-lichen/20 px-6 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-lichen">CREATOR DASHBOARD</div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-lichen">CREATOR DASHBOARD // FIREBASE CLOUD</div>
           <h2 class="font-serif text-2xl sm:text-3xl text-cream">Script &amp; Blog Publishing Studio</h2>
         </div>
         <div class="flex items-center gap-2.5">
+          <span id="studio-user-badge" class="hidden font-mono text-[11px] text-lichen bg-moss px-3 py-1.5 rounded-full bento-border"></span>
+          <button id="studio-logout-btn" onclick="logoutCreator()" class="hidden px-3.5 py-2 rounded-full bg-forest hover:bg-red-950/70 text-stone hover:text-red-200 border border-lichen/20 text-xs transition cursor-pointer">
+            Sign Out
+          </button>
           <button onclick="exportUpdatedSite()" class="px-4 py-2 rounded-full bg-lichen/15 hover:bg-lichen text-lichen hover:text-forest border border-lichen/40 text-xs font-semibold transition cursor-pointer">
-            Export Public HTML File
+            Backup HTML
           </button>
           <button onclick="closeStudioModal()" class="w-9 h-9 rounded-full bg-moss hover:bg-parchment hover:text-forest text-cream bento-border flex items-center justify-center text-lg transition cursor-pointer">
             ×
@@ -902,286 +629,299 @@
         </div>
       </div>
 
-      <!-- Studio Tabs -->
-      <div class="px-6 sm:px-8 pt-4 border-b border-lichen/15 flex items-center gap-6 text-xs font-mono uppercase tracking-wider">
-        <button onclick="switchStudioTab('editor')" id="tab-btn-editor" class="pb-3 border-b-2 border-lichen text-cream font-semibold cursor-pointer">
-          1. Compose / Edit Piece
-        </button>
-        <button onclick="switchStudioTab('library')" id="tab-btn-library" class="pb-3 border-b-2 border-transparent text-stone hover:text-cream cursor-pointer">
-          2. Manage Library (<span id="studio-lib-count">4</span>)
-        </button>
-        <button onclick="switchStudioTab('identity')" id="tab-btn-identity" class="pb-3 border-b-2 border-transparent text-stone hover:text-cream cursor-pointer">
-          3. Brand &amp; Masthead
-        </button>
-      </div>
-
-      <!-- TAB 1: COMPOSE / EDIT FORM -->
-      <div id="studio-tab-editor" class="p-6 sm:p-8">
-        <form id="post-form" onsubmit="savePost(event)" class="space-y-5">
-          <input type="hidden" id="edit-post-id" value="post-4">
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Title -->
-            <div class="md:col-span-2">
-              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Headline / Script Title *</label>
-              <input type="text" id="post-title" required="" placeholder="e.g., The Geopolitics of Rare Earths in 2026" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
-            </div>
-
-            <!-- Format Toggle -->
-            <div>
-              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Format Type *</label>
-              <select id="post-format" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
-                <option value="Essay">Blog / Editorial Essay</option>
-                <option value="Script">Video / Documentary Script</option>
-              </select>
-            </div>
+      <!-- AUTH LOGIN SCREEN (Shown when signed out) -->
+      <div id="studio-login-gate" class="p-8 sm:p-12 max-w-md mx-auto">
+        <div class="space-y-2 text-center mb-6">
+          <div class="w-11 h-11 rounded-2xl bg-forest bento-border mx-auto flex items-center justify-center text-lichen font-serif text-xl">
+            A/E
           </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Category -->
-            <div>
-              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Domain / Topic *</label>
-              <select id="post-category" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
-                <option value="Sustainability &amp; ESG">Sustainability &amp; ESG</option>
-                <option value="World Events">World Events</option>
-                <option value="Energy &amp; Resources">Energy &amp; Resources</option>
-                <option value="Policy &amp; Economics">Policy &amp; Economics</option>
-              </select>
-            </div>
-
-            <!-- Read / Runtime Estimate -->
-            <div>
-              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Read Time / Runtime</label>
-              <input type="text" id="post-readtime" placeholder="e.g., 7 MIN READ or 12 MIN SCRIPT" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
-            </div>
-
-            <!-- Featured Toggle -->
-            <div class="flex items-end pb-1">
-              <label class="flex items-center gap-2.5 cursor-pointer bg-forest border border-lichen/20 rounded-xl px-4 py-2.5 w-full">
-                <input type="checkbox" id="post-featured" class="accent-lichen w-4 h-4">
-                <span class="text-xs text-cream">Set as Featured Dispatch</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Cover Image + Quick Editorial Presets -->
+          <h3 class="font-serif text-2xl text-cream">Creator Sign-In</h3>
+          <p class="text-xs text-stone leading-relaxed">
+            Log in with your Firebase Email &amp; Password to publish live articles, scripts, and references directly to your public website.
+          </p>
+        </div>
+        <form onsubmit="loginCreator(event)" class="space-y-4">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
-              <label class="font-mono text-[11px] uppercase tracking-wider text-stone">Cover Image URL</label>
-              <div class="flex items-center gap-1.5 text-[11px]">
-                <span class="text-stone">Quick presets:</span>
-                <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Clean Grid</button>
-                <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">World Map</button>
-                <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Architecture</button>
-                <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Alpine Climate</button>
-              </div>
-            </div>
-            <input type="url" id="post-image" placeholder="https://images.unsplash.com/..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Creator Email</label>
+            <input type="email" id="login-email" required="" placeholder="you@example.com" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
           </div>
-
-          <!-- Summary / Deck -->
           <div>
-            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Subtitle / Executive Summary *</label>
-            <textarea id="post-summary" rows="2" required="" placeholder="A compelling 1-2 sentence hook summarizing the thesis or narrative arc..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none"></textarea>
+            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Password</label>
+            <input type="password" id="login-password" required="" placeholder="••••••••" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
           </div>
-
-          <!-- Full Body / Script Content -->
-          <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <label class="font-mono text-[11px] uppercase tracking-wider text-stone">Full Article or Script Body *</label>
-              <span class="font-mono text-[10px] text-lichen">Tip: Start a line with [VISUAL] or [SCENE] to highlight script cues</span>
-            </div>
-            <textarea id="post-content" rows="9" required="" placeholder="Write your full blog post or script here. Separate paragraphs with a blank line..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-3 text-sm text-cream font-sans leading-relaxed outline-none"></textarea>
-          </div>
-
-          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-            <button type="button" onclick="resetPostForm()" class="px-4 py-2.5 rounded-full text-xs text-stone hover:text-cream border border-lichen/20 cursor-pointer">
-              Clear Form
-            </button>
-            <button type="submit" class="bg-parchment hover:bg-cream text-forest px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg transition cursor-pointer">
-              Publish to Site
-            </button>
-          </div>
+          <p id="login-error" class="hidden text-xs text-red-300 bg-red-950/50 border border-red-500/30 rounded-xl px-3.5 py-2.5"></p>
+          <button type="submit" id="login-submit-btn" class="w-full bg-parchment hover:bg-cream text-forest py-2.5 rounded-full text-sm font-semibold shadow-lg transition cursor-pointer">
+            Unlock Creator Studio
+          </button>
         </form>
       </div>
 
-      <!-- TAB 2: MANAGE LIBRARY -->
-      <div id="studio-tab-library" class="hidden p-6 sm:p-8 space-y-4">
-        <div class="flex items-center justify-between">
-          <p class="text-xs text-stone">Edit or remove any published piece. Changes update your live page immediately.</p>
-          <button onclick="restoreSampleData()" class="text-xs text-lichen underline hover:text-cream cursor-pointer">Restore Default Samples</button>
+      <!-- AUTHENTICATED STUDIO WORKSPACE -->
+      <div id="studio-workspace" class="hidden">
+        <!-- Studio Tabs -->
+        <div class="px-6 sm:px-8 pt-4 border-b border-lichen/15 flex items-center gap-6 text-xs font-mono uppercase tracking-wider">
+          <button onclick="switchStudioTab('editor')" id="tab-btn-editor" class="pb-3 border-b-2 border-lichen text-cream font-semibold cursor-pointer">
+            1. Compose / Edit Piece
+          </button>
+          <button onclick="switchStudioTab('library')" id="tab-btn-library" class="pb-3 border-b-2 border-transparent text-stone hover:text-cream cursor-pointer">
+            2. Manage Library (<span id="studio-lib-count">4</span>)
+          </button>
+          <button onclick="switchStudioTab('identity')" id="tab-btn-identity" class="pb-3 border-b-2 border-transparent text-stone hover:text-cream cursor-pointer">
+            3. Brand &amp; Masthead
+          </button>
         </div>
-        <div id="studio-library-list" class="space-y-3">
-        <div class="bg-forest bento-border rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-moss text-lichen">Essay</span>
-              <span class="font-mono text-[10px] text-stone">Energy &amp; Resources</span>
-              <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-parchment text-forest font-semibold">FEATURED</span>
-            </div>
-            <h4 class="font-serif text-lg text-cream">The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics</h4>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openStudioModal('post-1')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-parchment hover:text-forest text-xs text-cream bento-border transition cursor-pointer">
-              Edit
-            </button>
-            <button onclick="deletePost('post-1')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-red-900/70 text-xs text-red-300 border border-red-500/20 transition cursor-pointer">
-              Delete
-            </button>
-          </div>
-        </div>
-      
-        <div class="bg-forest bento-border rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-moss text-lichen">Script</span>
-              <span class="font-mono text-[10px] text-stone">World Events</span>
-              
-            </div>
-            <h4 class="font-serif text-lg text-cream">SCRIPT: Vanishing Deltas — Life &amp; Policy on the Frontlines of Rising Seas</h4>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openStudioModal('post-2')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-parchment hover:text-forest text-xs text-cream bento-border transition cursor-pointer">
-              Edit
-            </button>
-            <button onclick="deletePost('post-2')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-red-900/70 text-xs text-red-300 border border-red-500/20 transition cursor-pointer">
-              Delete
-            </button>
-          </div>
-        </div>
-      
-        <div class="bg-forest bento-border rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-moss text-lichen">Essay</span>
-              <span class="font-mono text-[10px] text-stone">Sustainability &amp; ESG</span>
-              
-            </div>
-            <h4 class="font-serif text-lg text-cream">Beyond Carbon Offsets: How Corporate ESG Is Moving Toward Verified Scope 3 Action</h4>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openStudioModal('post-3')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-parchment hover:text-forest text-xs text-cream bento-border transition cursor-pointer">
-              Edit
-            </button>
-            <button onclick="deletePost('post-3')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-red-900/70 text-xs text-red-300 border border-red-500/20 transition cursor-pointer">
-              Delete
-            </button>
-          </div>
-        </div>
-      
-        <div class="bg-forest bento-border rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-moss text-lichen">Essay</span>
-              <span class="font-mono text-[10px] text-stone">Policy &amp; Economics</span>
-              
-            </div>
-            <h4 class="font-serif text-lg text-cream">Maritime Chokepoints  and The New Map of Global Trade</h4>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="openStudioModal('post-4')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-parchment hover:text-forest text-xs text-cream bento-border transition cursor-pointer">
-              Edit
-            </button>
-            <button onclick="deletePost('post-4')" class="px-3.5 py-1.5 rounded-full bg-moss hover:bg-red-900/70 text-xs text-red-300 border border-red-500/20 transition cursor-pointer">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-      </div>
 
-      <!-- TAB 3: BRAND & MASTHEAD SETTINGS -->
-      <div id="studio-tab-identity" class="hidden p-6 sm:p-8 space-y-5">
-        <p class="text-xs text-stone">Customize your publication name, hero masthead wordmark, and manifesto bio before exporting your public site.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Publication / Author Name</label>
-            <input type="text" id="setting-brand" value="ATLAS &amp; EARTH" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+        <!-- TAB 1: COMPOSE / EDIT FORM -->
+        <div id="studio-tab-editor" class="p-6 sm:p-8">
+          <form id="post-form" onsubmit="savePost(event)" class="space-y-5">
+            <input type="hidden" id="edit-post-id" value="">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="md:col-span-2">
+                <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Headline / Script Title *</label>
+                <input type="text" id="post-title" required="" placeholder="e.g., The Geopolitics of Rare Earths in 2026" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+              </div>
+
+              <div>
+                <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Format Type *</label>
+                <select id="post-format" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+                  <option value="Essay">Blog / Editorial Essay</option>
+                  <option value="Script">Video / Documentary Script</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Domain / Topic *</label>
+                <select id="post-category" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+                  <option value="Sustainability &amp; ESG">Sustainability &amp; ESG</option>
+                  <option value="World Events">World Events</option>
+                  <option value="Energy &amp; Resources">Energy &amp; Resources</option>
+                  <option value="Policy &amp; Economics">Policy &amp; Economics</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Read Time / Runtime</label>
+                <input type="text" id="post-readtime" placeholder="e.g., 7 MIN READ or 12 MIN SCRIPT" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+              </div>
+
+              <div class="flex items-end pb-1">
+                <label class="flex items-center gap-2.5 cursor-pointer bg-forest border border-lichen/20 rounded-xl px-4 py-2.5 w-full">
+                  <input type="checkbox" id="post-featured" class="accent-lichen w-4 h-4">
+                  <span class="text-xs text-cream">Set as Featured Dispatch</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                <label class="font-mono text-[11px] uppercase tracking-wider text-stone">Cover Image URL</label>
+                <div class="flex items-center gap-1.5 text-[11px]">
+                  <span class="text-stone">Quick presets:</span>
+                  <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Clean Grid</button>
+                  <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">World Map</button>
+                  <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Architecture</button>
+                  <button type="button" onclick="setPresetImage('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')" class="px-2 py-0.5 rounded bg-forest text-lichen hover:bg-lichen hover:text-forest transition cursor-pointer">Alpine Climate</button>
+                </div>
+              </div>
+              <input type="url" id="post-image" placeholder="https://images.unsplash.com/..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+            </div>
+
+            <div>
+              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Subtitle / Executive Summary *</label>
+              <textarea id="post-summary" rows="2" required="" placeholder="A compelling 1-2 sentence hook summarizing the thesis or narrative arc..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-2.5 text-sm text-cream outline-none"></textarea>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="font-mono text-[11px] uppercase tracking-wider text-stone">Full Article or Script Body *</label>
+                <span class="font-mono text-[10px] text-lichen">Tip: Start a line with [VISUAL] or [SCENE] to highlight script cues</span>
+              </div>
+              <textarea id="post-content" rows="9" required="" placeholder="Write your full blog post or script here. Separate paragraphs with a blank line..." class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-3 text-sm text-cream font-sans leading-relaxed outline-none"></textarea>
+            </div>
+
+            <!-- Dedicated References & Sources Input -->
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                <label class="font-mono text-[11px] uppercase tracking-wider text-stone">References &amp; Sources (Optional)</label>
+                <span class="font-mono text-[10px] text-lichen">One citation or URL per line — links automatically become clickable</span>
+              </div>
+              <textarea id="post-references" rows="4" placeholder="Rystad Energy (2025) — Chokepoints under pressure: Analysis of global crude oil &amp; LNG transit flows.&#10;London School of Economics (2026) — The Fragility of the Global Trading System: https://www.lse.ac.uk" class="w-full bg-forest border border-lichen/25 focus:border-lichen rounded-xl px-4 py-3 text-xs sm:text-sm text-cream font-sans leading-relaxed outline-none"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <button type="button" onclick="resetPostForm()" class="px-4 py-2.5 rounded-full text-xs text-stone hover:text-cream border border-lichen/20 cursor-pointer">
+                Clear Form
+              </button>
+              <button type="submit" id="publish-submit-btn" class="bg-parchment hover:bg-cream text-forest px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg transition cursor-pointer">
+                Publish Live to Cloud
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 2: MANAGE LIBRARY -->
+        <div id="studio-tab-library" class="hidden p-6 sm:p-8 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="text-xs text-stone">Edit or remove any published piece. Changes sync live to Firebase immediately.</p>
+            <div class="flex items-center gap-3">
+              <button onclick="seedDefaultPostsToCloud()" class="text-xs text-lichen underline hover:text-cream cursor-pointer">Sync Current Archive to Cloud</button>
+            </div>
+          </div>
+          <div id="studio-library-list" class="space-y-3"></div>
+        </div>
+
+        <!-- TAB 3: BRAND & MASTHEAD SETTINGS -->
+        <div id="studio-tab-identity" class="hidden p-6 sm:p-8 space-y-5">
+          <p class="text-xs text-stone">Customize your publication name, hero masthead wordmark, and manifesto bio across all visitors' browsers.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Publication / Author Name</label>
+              <input type="text" id="setting-brand" value="ATLAS &amp; EARTH" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Oversized Hero Masthead (1 Word)</label>
+              <input type="text" id="setting-masthead" value="CHRONICLE" maxlength="14" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+            </div>
           </div>
           <div>
-            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Oversized Hero Masthead (1 Word)</label>
-            <input type="text" id="setting-masthead" value="CHRONICLE" maxlength="14" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none">
+            <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Editorial Manifesto Bio</label>
+            <textarea id="setting-bio" rows="3" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none"></textarea>
           </div>
+          <button onclick="saveBrandSettings()" class="bg-parchment hover:bg-cream text-forest px-6 py-2.5 rounded-full text-xs font-semibold transition cursor-pointer">
+            Update Masthead &amp; Bio Live
+          </button>
         </div>
-        <div>
-          <label class="block font-mono text-[11px] uppercase tracking-wider text-stone mb-1.5">Editorial Manifesto Bio</label>
-          <textarea id="setting-bio" rows="3" class="w-full bg-forest border border-lichen/25 rounded-xl px-4 py-2.5 text-sm text-cream outline-none"></textarea>
-        </div>
-        <button onclick="saveBrandSettings()" class="bg-parchment hover:bg-cream text-forest px-6 py-2.5 rounded-full text-xs font-semibold transition cursor-pointer">
-          Update Masthead &amp; Bio
-        </button>
       </div>
     </div>
   </div>
 
   <!-- =========================================================
-       APPLICATION LOGIC & LOCALSTORAGE STATE ENGINE
+       FIREBASE + STATE ENGINE (CLOUD FIRESTORE + AUTH + LOCAL FALLBACK)
   ========================================================== -->
-  <script>
-    // Default curated placeholder works so the initial site looks rich and ready for your topics
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      doc,
+      setDoc,
+      deleteDoc,
+      onSnapshot,
+      writeBatch
+    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD6gYfY6POWztg7-ZDqiuXOHCcsoAMLFNE",
+      authDomain: "editorial-studio-d0870.firebaseapp.com",
+      projectId: "editorial-studio-d0870",
+      storageBucket: "editorial-studio-d0870.firebasestorage.app",
+      messagingSenderId: "685885277678",
+      appId: "1:685885277678:web:58761cf90cf1e822647aff",
+      measurementId: "G-0YTYK97ZYK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
     const DEFAULT_POSTS = [
-  {
-    "id": "post-1",
-    "title": "The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics",
-    "format": "Essay",
-    "category": "Energy & Resources",
-    "date": "November 2026",
-    "readTime": "7 MIN READ",
-    "featured": true,
-    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80",
-    "summary": "Every wind turbine, high-voltage transmission line, and EV battery shares a single material dependency. Inside the quiet diplomatic race for critical minerals.",
-    "content": "Beneath every headline celebrating record solar installations lies a quieter, harder physical constraint: the global supply of refined copper and grid-scale transformers.\n\nWhile climate targets are debated in conference halls from Geneva to Belém, the real timeline of the energy transition is being negotiated in mining corridors across the Andes, Central Africa, and Southeast Asia.\n\nOver the next decade, global electricity demand is projected to expand faster than at any point in modern industrial history. Data centers, electrified transport, and green hydrogen facilities all converge on the same aging transmission infrastructure.\n\nTo navigate this shift, sustainability policy can no longer treat supply chains as an afterthought. True decarbonization requires industrial diplomacy—aligning environmental stewardship in resource-rich nations with long-term capital from energy-importing economies."
-  },
-  {
-    "id": "post-2",
-    "title": "SCRIPT: Vanishing Deltas — Life & Policy on the Frontlines of Rising Seas",
-    "format": "Script",
-    "category": "World Events",
-    "date": "November 2026",
-    "readTime": "11 MIN SCRIPT",
-    "featured": false,
-    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80",
-    "summary": "A documentary video script exploring how coastal megacities and agricultural deltas are redesigning architecture and water governance.",
-    "content": "[SCENE 01 // COLD OPEN — AERIAL DRONE SHOT AT DAWN]\nLow mist drifts across an agricultural river delta. Narrow earthen embankments separate brackish tidal water from emerald rice paddies.\n\nNARRATOR (V.O.)\nFourteen percent of the world's population lives within ten meters of sea level. For centuries, human civilization built its greatest ports where rivers meet the ocean. Today, that geography is being redrawn in real time.\n\n[VISUAL // ARCHIVAL MAP OVERLAY & SATELLITE TIMELAPSE]\nSplit-screen showing coastline shifts between 1995 and 2026 alongside modern flood-barrier engineering blueprints.\n\nNARRATOR (V.O.)\nThis is no longer a story about distant predictions. From Rotterdam to the Mekong and the Sundarbans, engineers, farmers, and policymakers are testing a new blueprint: learning not just to wall out water, but to live with it."
-  },
-  {
-    "id": "post-3",
-    "title": "Beyond Carbon Offsets: How Corporate ESG Is Moving Toward Verified Scope 3 Action",
-    "format": "Essay",
-    "category": "Sustainability & ESG",
-    "date": "October 2026",
-    "readTime": "6 MIN READ",
-    "featured": false,
-    "image": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80",
-    "summary": "As regulatory scrutiny tightens across global markets, voluntary carbon credits are giving way to direct supply-chain decarbonization.",
-    "content": "For nearly a decade, corporate net-zero pledges relied heavily on inexpensive offsets purchased far outside a company's operational boundary. That era is rapidly closing.\n\nNew disclosure mandates and investor diligence have shifted attention to Scope 3 emissions—the embedded carbon sitting inside raw materials, logistics, and product lifecycles.\n\nCompanies leading this transition are moving capital upstream: co-investing in low-carbon steel, circular packaging, and renewable power purchase agreements directly with their tier-one and tier-two suppliers."
-  },
-  {
-    "id": "post-4",
-    "title": "Maritime Chokepoints  and The New Map of Global Trade",
-    "format": "Essay",
-    "category": "Policy & Economics",
-    "date": "October 2026",
-    "readTime": "5 MIN READ",
-    "featured": false,
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
-    "summary": "From the Strait of Hormuz to the Suez Canal, global trade runs on a handful of vulnerable waterways. Decarbonizing the world's fleet is how we redraw the map.",
-    "content": "Roughly ninety percent of everything we buy moves across the ocean, and for years economists treated those shipping lanes like a smooth, invisible conveyor belt. Then missile attacks in late 2023 cut commercial traffic through the Bab al-Mandab Strait by more than half, right as severe drought forced the Panama Canal to cap daily vessel transits. Captains didn't just drop anchor and wait; they steered thousands of miles around the Cape of Good Hope, burning millions of extra tons of heavy bunker fuel along the way. Getting ships off fossil fuels isn't some niche green luxury—it's the only real way to break global trade's dependence on narrow, vulnerable chokepoints.\n\nLook at what's actually sitting inside those hulls, and the whole system starts to look circular. Before the Red Sea attacks, Rystad Energy tracked roughly 71.3 million barrels of oil and petroleum products plus 26 billion cubic feet of liquefied natural gas passing daily through just five maritime chokepoints. Nearly forty percent of all seaborne cargo is coal, crude oil and gas. That means the global fleet spends nearly half its time hauling the exact fossil fuels that burn in its own engines and heat up the atmosphere. When climate-driven droughts shrink canal watersheds or regional fighting closes a strait, diesel-powered ships have to take the long way around, driving up emissions and freight bills all at once.\n\nGeography traps us twice.\n\nYou can see what that looks like on the ground when you follow the bill down to a mid-sized textile exporter in Tiruppur or a family-run coffee roaster in Hamburg waiting three extra weeks for containers stuck below southern Africa. When maritime insurance spikes and spot container rates double overnight, giant retail chains just pass the surcharge along or lean on massive credit lines. Small business owners don't have that cushion; they watch their cash dry up while inventory floats off the coast of Namibia. Out on the water, Filipino, Indian and Ukrainian seafarers end up stuck aboard diverted tankers for extra months away from home, dealing with rougher seas and higher piracy risks because their ships can't refuel or dock on schedule. Countries bordering those passages take a direct hit too—research from the London School of Economics estimates that a prolonged closure of the Suez Canal threatens roughly eight percent of Egypt's entire GDP.\n\nWhen regulators meet at the International Maritime Organization to hash out net-zero rules, the conversation usually disappears into dense spreadsheets about carbon intensity ratios and fuel levies. Strip away the technical shorthand, though, and the choice is pretty simple. Either we keep propping up a centralized, oil-dependent transit map, or we build a spread-out clean-fuel network that changes how ships move. Switching vessels over to green ammonia, e-methanol and wind-assisted propulsion cuts the roughly three percent of global emissions coming from shipping, sure. More importantly, it rewrites maritime geography. Crude oil locks geopolitical power into a few tense basins like the Strait of Hormuz, where twenty to twenty-five percent of global seaborne oil and gas has to squeeze through a thirty-mile-wide channel. Green marine fuels don't have that problem—you can make them anywhere you have steady sun, wind or hydro power.\n\nThink about what happens to trade routes once ports in Chile, Namibia, Oman and southern India start producing zero-carbon fuel right on the coast from sunshine and seawater. Vessels wouldn't need to hug old oil-refining corridors or bet everything on single-lane waterways. Smaller coastal routes run by battery electric ships and green hydrogen could skip crowded mega-ports altogether, linking regional producers straight to nearby markets.\n\nPeople inside the freight industry are quick to point out that green marine fuels currently cost two to four times more than conventional bunker oil, and they warn that strict carbon pricing will push retail prices up right away. They're not wrong about the sticker shock. Swapping out ship engines and building green-ammonia storage tanks takes billions in upfront spending at a time when household budgets are already tight. Still, sticking with cheap bunker oil is a bad bargain because it hides the real cost of volatility. Every time a strait closes or a canal dries up, emergency detours, spoiled food shipments and sudden energy spikes tack an unannounced tax onto grocery bills worldwide. Paying a steady, predictable premium now to scale clean engines beats paying for constant crisis control later.\n\nMarkets won't close that price gap on their own, so governments and port authorities have to step in. When public agencies back green shipping corridors with guaranteed purchase contracts, fuel makers can scale up and drive prices down fast. Redirecting existing fossil-fuel subsidies toward port electrification and clean bunkering stations shields local manufacturers from oil shocks while clearing toxic diesel exhaust out of port neighborhoods.\n\nFor centuries, powers rose and fell by controlling narrow stretches of water where coal and oil ships had no choice but to pass. Today, drying canals and regional conflicts are showing how fragile a bottleneck economy really is. Cleaning up the world's fleet gives us a practical way to outgrow those choke points—assuming governments treat clean port infrastructure like basic supply-chain security instead of a distant climate goal. Until zero-emission container ships start crossing the Pacific without burning a drop of crude, every shipment we count on sits one blocked canal away from stalling out."
-  }
-];
+      {
+        id: "post-1",
+        title: "The Copper Bottleneck: Why Electrifying the Global Grid Hinges on Geopolitics",
+        format: "Essay",
+        category: "Energy & Resources",
+        date: "November 2026",
+        readTime: "7 MIN READ",
+        featured: true,
+        order: 1,
+        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80",
+        summary: "Every wind turbine, high-voltage transmission line, and EV battery shares a single material dependency. Inside the quiet diplomatic race for critical minerals.",
+        content: "Beneath every headline celebrating record solar installations lies a quieter, harder physical constraint: the global supply of refined copper and grid-scale transformers.\n\nWhile climate targets are debated in conference halls from Geneva to Belém, the real timeline of the energy transition is being negotiated in mining corridors across the Andes, Central Africa, and Southeast Asia.\n\nOver the next decade, global electricity demand is projected to expand faster than at any point in modern industrial history. Data centers, electrified transport, and green hydrogen facilities all converge on the same aging transmission infrastructure.\n\nTo navigate this shift, sustainability policy can no longer treat supply chains as an afterthought. True decarbonization requires industrial diplomacy—aligning environmental stewardship in resource-rich nations with long-term capital from energy-importing economies.",
+        references: [
+          "International Energy Agency (IEA) — Global Critical Minerals Outlook: Copper Supply & Grid Expansion Projections",
+          "S&P Global Commodity Insights — The Future of Copper: Will the Looming Supply Gap Short-Circuit the Energy Transition?"
+        ]
+      },
+      {
+        id: "post-2",
+        title: "SCRIPT: Vanishing Deltas — Life & Policy on the Frontlines of Rising Seas",
+        format: "Script",
+        category: "World Events",
+        date: "November 2026",
+        readTime: "11 MIN SCRIPT",
+        featured: false,
+        order: 2,
+        image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80",
+        summary: "A documentary video script exploring how coastal megacities and agricultural deltas are redesigning architecture and water governance.",
+        content: "[SCENE 01 // COLD OPEN — AERIAL DRONE SHOT AT DAWN]\nLow mist drifts across an agricultural river delta. Narrow earthen embankments separate brackish tidal water from emerald rice paddies.\n\nNARRATOR (V.O.)\nFourteen percent of the world's population lives within ten meters of sea level. For centuries, human civilization built its greatest ports where rivers meet the ocean. Today, that geography is being redrawn in real time.\n\n[VISUAL // ARCHIVAL MAP OVERLAY & SATELLITE TIMELAPSE]\nSplit-screen showing coastline shifts between 1995 and 2026 alongside modern flood-barrier engineering blueprints.\n\nNARRATOR (V.O.)\nThis is no longer a story about distant predictions. From Rotterdam to the Mekong and the Sundarbans, engineers, farmers, and policymakers are testing a new blueprint: learning not just to wall out water, but to live with it.",
+        references: [
+          "IPCC Sixth Assessment Report (AR6) — Working Group II: Coastal Systems and Low-Lying Areas",
+          "Deltares & World Bank — Adaptive Delta Management in the Mekong and Ganges-Brahmaputra Basins"
+        ]
+      },
+      {
+        id: "post-3",
+        title: "Beyond Carbon Offsets: How Corporate ESG Is Moving Toward Verified Scope 3 Action",
+        format: "Essay",
+        category: "Sustainability & ESG",
+        date: "October 2026",
+        readTime: "6 MIN READ",
+        featured: false,
+        order: 3,
+        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80",
+        summary: "As regulatory scrutiny tightens across global markets, voluntary carbon credits are giving way to direct supply-chain decarbonization.",
+        content: "For nearly a decade, corporate net-zero pledges relied heavily on inexpensive offsets purchased far outside a company's operational boundary. That era is rapidly closing.\n\nNew disclosure mandates and investor diligence have shifted attention to Scope 3 emissions—the embedded carbon sitting inside raw materials, logistics, and product lifecycles.\n\nCompanies leading this transition are moving capital upstream: co-investing in low-carbon steel, circular packaging, and renewable power purchase agreements directly with their tier-one and tier-two suppliers.",
+        references: [
+          "Science Based Targets initiative (SBTi) — Corporate Net-Zero Standard & Scope 3 Value Chain Guidance",
+          "European Financial Reporting Advisory Group (EFRAG) — ESRS E1 Climate Change Disclosure Standards"
+        ]
+      },
+      {
+        id: "post-4",
+        title: "SCRIPT: Maritime Chokepoints & The New Map of Global Trade",
+        format: "Script",
+        category: "Policy & Economics",
+        date: "October 2026",
+        readTime: "9 MIN SCRIPT",
+        featured: false,
+        order: 4,
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
+        summary: "An explainer script unpacking how climate droughts in canals and geopolitical tensions at sea are reshaping global supply resilience.",
+        content: "[SCENE 01 // STUDIO DESK + INTERACTIVE GLOBAL SHIPPING GRAPHIC]\nCamera pushes in slowly as glowing shipping lanes trace across a dark obsidian globe.\n\nHOST (ON CAMERA)\nNinety percent of everything you own traveled across the ocean on a container ship. And almost all of it passed through one of just seven narrow maritime chokepoints.\n\n[VISUAL // SATELLITE VIEW OF PANAMA CANAL & RED SEA CORRIDORS]\nAnimated telemetry showing vessel rerouting times and fuel emission spikes when key passages face disruption.\n\nHOST (ON CAMERA)\nWhen drought lowers water levels in Central America or regional conflict closes a strait, the shockwave hits inflation, food security, and carbon footprints within weeks.",
+        references: [
+          "Rystad Energy (2025) — Chokepoints under pressure: Analysis tracking daily crude oil (71.3 million barrels) and LNG (26 billion cubic feet) flows across five primary maritime chokepoints.",
+          "IMF PortWatch & World Bank Data Lab — Bab el-Mandeb Strait Vessel Transit Monitoring & Cape of Good Hope Rerouting Telemetry.",
+          "Panama Canal Authority (ACP) & U.S. International Trade Commission — The Dry Corridor: El Niño and Maritime Disruptions at the Panama Canal.",
+          "London School of Economics — Centre for Economic Performance — The Fragility of the Global Trading System (Suez Canal closure & GDP impact modeling).",
+          "International Maritime Organization (IMO) & U.S. EIA — Fourth IMO Greenhouse Gas Study and World Oil Transit Chokepoints."
+        ]
+      }
+    ];
 
     const DEFAULT_SETTINGS = {
-  "brand": "ATLAS & EARTH",
-  "masthead": "CHRONICLE",
-  "bio": "This publication serves as an open-access journal and script repository examining the intersection of planetary sustainability, resource geopolitics, and shifting world events. Every essay and documentary script is structured to turn complex policy and environmental data into clear, human-centered storytelling."
-};
+      brand: "ATLAS & EARTH",
+      masthead: "CHRONICLE",
+      bio: "This publication serves as an open-access journal and script repository examining the intersection of planetary sustainability, resource geopolitics, and shifting world events. Every essay and documentary script is structured to turn complex policy and environmental data into clear, human-centered storytelling."
+    };
 
     let posts = [];
-    let settings = {};
+    let settings = { ...DEFAULT_SETTINGS };
     let currentFilter = { type: 'all', value: 'all' };
+    let currentUser = null;
+    let pendingEditId = null;
+    let cloudHasPosts = false;
 
-    // Initialize state from localStorage
-    function initApp() {
+    // Load local cache immediately so there is zero blank flash
+    function loadLocalFallback() {
       try {
         const savedPosts = localStorage.getItem('editorial_studio_posts_v1');
         const savedSettings = localStorage.getItem('editorial_studio_settings_v1');
@@ -1195,14 +935,129 @@
       renderAll();
     }
 
-    function persistState() {
+    function persistLocalCache() {
       try {
         localStorage.setItem('editorial_studio_posts_v1', JSON.stringify(posts));
         localStorage.setItem('editorial_studio_settings_v1', JSON.stringify(settings));
-      } catch (e) {
-        console.warn('LocalStorage unavailable:', e);
+      } catch (e) {}
+    }
+
+    // Real-time Firestore listener for public posts
+    function startCloudListeners() {
+      onSnapshot(
+        collection(db, "posts"),
+        (snapshot) => {
+          if (!snapshot.empty) {
+            cloudHasPosts = true;
+            const cloudPosts = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            cloudPosts.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
+            posts = cloudPosts;
+            persistLocalCache();
+            renderAll();
+          } else {
+            cloudHasPosts = false;
+          }
+        },
+        (err) => {
+          console.warn("Firestore read fallback:", err.message);
+        }
+      );
+
+      onSnapshot(
+        doc(db, "settings", "site"),
+        (docSnap) => {
+          if (docSnap.exists()) {
+            settings = { ...DEFAULT_SETTINGS, ...docSnap.data() };
+            persistLocalCache();
+            applySettingsToUI();
+          }
+        },
+        (err) => {
+          console.warn("Settings read fallback:", err.message);
+        }
+      );
+    }
+
+    // Monitor Firebase Auth State
+    onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+      const loginGate = document.getElementById('studio-login-gate');
+      const workspace = document.getElementById('studio-workspace');
+      const userBadge = document.getElementById('studio-user-badge');
+      const logoutBtn = document.getElementById('studio-logout-btn');
+
+      if (user) {
+        loginGate.classList.add('hidden');
+        workspace.classList.remove('hidden');
+        userBadge.textContent = user.email;
+        userBadge.classList.remove('hidden');
+        logoutBtn.classList.remove('hidden');
+
+        // Auto-migrate local posts to Firestore on first sign-in if cloud is empty
+        if (!cloudHasPosts && posts.length > 0) {
+          await seedPostsListToCloud(posts, true);
+        }
+
+        if (pendingEditId) {
+          loadPostIntoEditor(pendingEditId);
+          switchStudioTab('editor');
+          pendingEditId = null;
+        }
+      } else {
+        loginGate.classList.remove('hidden');
+        workspace.classList.add('hidden');
+        userBadge.classList.add('hidden');
+        logoutBtn.classList.add('hidden');
+      }
+    });
+
+    async function seedPostsListToCloud(listToSync, silent = false) {
+      try {
+        const batch = writeBatch(db);
+        listToSync.forEach((p, idx) => {
+          const ref = doc(db, "posts", p.id);
+          batch.set(ref, {
+            ...p,
+            updatedAt: p.updatedAt || (Date.now() - idx * 1000)
+          });
+        });
+        await batch.commit();
+        if (!silent) showToast('Synced archive to Firebase Cloud');
+      } catch (err) {
+        console.error(err);
+        if (!silent) showToast('Cloud sync failed: check Firestore rules');
       }
     }
+
+    window.seedDefaultPostsToCloud = () => seedPostsListToCloud(posts, false);
+
+    window.loginCreator = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const errEl = document.getElementById('login-error');
+      const btn = document.getElementById('login-submit-btn');
+
+      errEl.classList.add('hidden');
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        showToast('Signed into Creator Studio');
+      } catch (err) {
+        errEl.textContent = err.message.replace('Firebase:', '').trim();
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Unlock Creator Studio';
+      }
+    };
+
+    window.logoutCreator = async function() {
+      await signOut(auth);
+      showToast('Signed out of Creator Studio');
+    };
 
     function applySettingsToUI() {
       document.getElementById('site-brand-name').textContent = settings.brand;
@@ -1223,7 +1078,6 @@
       document.getElementById('studio-lib-count').textContent = posts.length;
     }
 
-    // Render the 4-Column Architectural Visual Cards
     function renderPostsGrid() {
       const grid = document.getElementById('posts-grid');
       const filterBar = document.getElementById('active-filter-bar');
@@ -1255,7 +1109,6 @@
       grid.innerHTML = filtered.map(post => `
         <article onclick="openReaderModal('${post.id}')" class="group cursor-pointer flex flex-col justify-between bg-moss hover:bg-mossHover bento-border bento-border-hover rounded-[22px] overflow-hidden transition duration-300 transform hover:-translate-y-1 shadow-lg">
           <div>
-            <!-- Rounded Architectural Image Frame -->
             <div class="relative aspect-[4/3] overflow-hidden bg-forest">
               <img
                 src="${escapeHtml(post.image)}"
@@ -1264,7 +1117,6 @@
                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-90"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-moss via-transparent to-forest/30"></div>
-              <!-- Top Format Badge -->
               <div class="absolute top-3 left-3 flex items-center gap-1.5">
                 <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${post.format === 'Script' ? 'bg-parchment text-forest font-semibold' : 'glass-card text-cream'}">
                   ${escapeHtml(post.format)}
@@ -1272,7 +1124,6 @@
               </div>
             </div>
 
-            <!-- Card Copy -->
             <div class="p-5 space-y-2.5">
               <div class="font-mono text-[10px] uppercase tracking-wider text-lichen">
                 ${escapeHtml(post.category)}
@@ -1286,7 +1137,6 @@
             </div>
           </div>
 
-          <!-- Card Footer -->
           <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-lichen/10 mt-2">
             <span class="font-mono text-[10px] text-stone">${escapeHtml(post.readTime || '5 MIN READ')}</span>
             <span class="w-7 h-7 rounded-full bg-forest border border-lichen/25 group-hover:bg-parchment group-hover:text-forest text-lichen inline-flex items-center justify-center text-xs transition">
@@ -1297,7 +1147,6 @@
       `).join('');
     }
 
-    // Render Featured Dispatch Split Bento (Matching Image 1's Featured Project Section)
     function renderFeaturedDispatch() {
       const container = document.getElementById('featured-container');
       const featured = posts.find(p => p.featured) || posts[0];
@@ -1318,7 +1167,6 @@
             ${escapeHtml(featured.summary)}
           </p>
 
-          <!-- Clean Metadata Stack (Matching Image 1's Location/Type/Area bullets) -->
           <div class="space-y-2 pt-2 border-t border-lichen/15 font-mono text-xs text-stone">
             <div class="flex items-center gap-2.5">
               <span class="w-1.5 h-1.5 rounded-full bg-lichen"></span>
@@ -1359,26 +1207,25 @@
       `;
     }
 
-    // Filter Controls
-    function filterByFormat(format) {
+    window.filterByFormat = function(format) {
       currentFilter = { type: 'format', value: format };
       updateFilterPills(format.toLowerCase());
       renderPostsGrid();
       document.getElementById('archive').scrollIntoView({ behavior: 'smooth' });
-    }
+    };
 
-    function filterByCategory(category) {
+    window.filterByCategory = function(category) {
       currentFilter = { type: 'category', value: category };
       updateFilterPills('none');
       renderPostsGrid();
       document.getElementById('archive').scrollIntoView({ behavior: 'smooth' });
-    }
+    };
 
-    function resetFilters() {
+    window.resetFilters = function() {
       currentFilter = { type: 'all', value: 'all' };
       updateFilterPills('all');
       renderPostsGrid();
-    }
+    };
 
     function updateFilterPills(activeKey) {
       const pills = {
@@ -1396,8 +1243,7 @@
       });
     }
 
-    // Reader Modal Logic (Formats Paragraphs + Script Scene/Visual Cues)
-    function openReaderModal(postId) {
+    window.openReaderModal = function(postId) {
       const post = posts.find(p => p.id === postId);
       if (!post) return;
 
@@ -1415,7 +1261,6 @@
         openStudioModal(post.id);
       };
 
-      // Format body paragraphs and detect [SCENE] / [VISUAL] screenplay cues
       const blocks = post.content.split(/\n\s*\n/).filter(Boolean);
       const formattedHtml = blocks.map(block => {
         const trimmed = block.trim();
@@ -1428,7 +1273,6 @@
             ${rest ? `<p class="text-cream/85 italic">${escapeHtml(rest).replace(/\n/g, '<br/>')}</p>` : ''}
           `;
         }
-        // Check for speaker cues like NARRATOR (V.O.)
         const lines = trimmed.split('\n');
         if (lines.length > 1 && lines[0] === lines[0].toUpperCase() && lines[0].length < 42) {
           return `
@@ -1442,19 +1286,48 @@
       }).join('');
 
       document.getElementById('reader-body').innerHTML = formattedHtml;
+
+      const refsSection = document.getElementById('reader-references-section');
+      const refsList = document.getElementById('reader-references-list');
+      const refsArray = Array.isArray(post.references)
+        ? post.references.filter(r => r && r.trim())
+        : (typeof post.references === 'string'
+            ? post.references.split('\n').map(r => r.trim()).filter(Boolean)
+            : []);
+
+      if (refsArray.length > 0) {
+        refsList.innerHTML = refsArray.map(ref => {
+          const escaped = escapeHtml(ref);
+          const linked = escaped.replace(
+            /(https?:\/\/[^\s<]+)/g,
+            '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-lichen underline hover:text-cream break-all">$1</a>'
+          );
+          return `<li class="pl-1">${linked}</li>`;
+        }).join('');
+        refsSection.classList.remove('hidden');
+      } else {
+        refsList.innerHTML = '';
+        refsSection.classList.add('hidden');
+      }
+
       document.getElementById('reader-modal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-    }
+    };
 
-    function closeReaderModal() {
+    window.closeReaderModal = function() {
       document.getElementById('reader-modal').classList.add('hidden');
       document.body.style.overflow = '';
-    }
+    };
 
-    // Creator Studio Modal & CRUD Functions
-    function openStudioModal(editId = null) {
+    window.openStudioModal = function(editId = null) {
       document.getElementById('studio-modal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+
+      if (!currentUser) {
+        pendingEditId = editId;
+        return;
+      }
+
       if (editId) {
         loadPostIntoEditor(editId);
         switchStudioTab('editor');
@@ -1462,14 +1335,14 @@
         resetPostForm();
         switchStudioTab('editor');
       }
-    }
+    };
 
-    function closeStudioModal() {
+    window.closeStudioModal = function() {
       document.getElementById('studio-modal').classList.add('hidden');
       document.body.style.overflow = '';
-    }
+    };
 
-    function switchStudioTab(tabName) {
+    window.switchStudioTab = function(tabName) {
       ['editor', 'library', 'identity'].forEach(t => {
         document.getElementById(`studio-tab-${t}`).classList.toggle('hidden', t !== tabName);
         const btn = document.getElementById(`tab-btn-${t}`);
@@ -1481,17 +1354,18 @@
           btn.classList.add('border-transparent', 'text-stone');
         }
       });
-    }
+    };
 
-    function setPresetImage(url) {
+    window.setPresetImage = function(url) {
       document.getElementById('post-image').value = url;
-    }
+    };
 
-    function resetPostForm() {
+    window.resetPostForm = function() {
       document.getElementById('post-form').reset();
       document.getElementById('edit-post-id').value = '';
+      document.getElementById('post-references').value = '';
       document.getElementById('post-image').value = 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80';
-    }
+    };
 
     function loadPostIntoEditor(id) {
       const post = posts.find(p => p.id === id);
@@ -1505,69 +1379,84 @@
       document.getElementById('post-image').value = post.image;
       document.getElementById('post-summary').value = post.summary;
       document.getElementById('post-content').value = post.content;
+      document.getElementById('post-references').value = Array.isArray(post.references)
+        ? post.references.join('\n')
+        : (post.references || '');
     }
 
-    function savePost(e) {
+    window.savePost = async function(e) {
       e.preventDefault();
-      const editId = document.getElementById('edit-post-id').value;
-      const title = document.getElementById('post-title').value.trim();
-      const format = document.getElementById('post-format').value;
-      const category = document.getElementById('post-category').value;
-      const readTimeInput = document.getElementById('post-readtime').value.trim();
-      const featured = document.getElementById('post-featured').checked;
-      const image = document.getElementById('post-image').value.trim() || 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80';
-      const summary = document.getElementById('post-summary').value.trim();
-      const content = document.getElementById('post-content').value.trim();
-
-      // Auto-calculate reading/script duration if omitted
-      const wordCount = content.split(/\s+/).length;
-      const autoTime = format === 'Script'
-        ? `${Math.max(2, Math.ceil(wordCount / 130))} MIN SCRIPT`
-        : `${Math.max(2, Math.ceil(wordCount / 200))} MIN READ`;
-
-      if (featured) {
-        posts.forEach(p => p.featured = false);
+      if (!currentUser) {
+        showToast('Please sign in first');
+        return;
       }
 
-      const nowLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      const submitBtn = document.getElementById('publish-submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Publishing...';
 
-      if (editId) {
-        const idx = posts.findIndex(p => p.id === editId);
-        if (idx !== -1) {
-          posts[idx] = {
-            ...posts[idx],
-            title,
-            format,
-            category,
-            readTime: readTimeInput || autoTime,
-            featured,
-            image,
-            summary,
-            content
-          };
-        }
-        showToast('Piece updated and live on page');
-      } else {
-        posts.unshift({
-          id: 'post-' + Date.now(),
+      try {
+        const editId = document.getElementById('edit-post-id').value;
+        const title = document.getElementById('post-title').value.trim();
+        const format = document.getElementById('post-format').value;
+        const category = document.getElementById('post-category').value;
+        const readTimeInput = document.getElementById('post-readtime').value.trim();
+        const featured = document.getElementById('post-featured').checked;
+        const image = document.getElementById('post-image').value.trim() || 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80';
+        const summary = document.getElementById('post-summary').value.trim();
+        const content = document.getElementById('post-content').value.trim();
+        const referencesRaw = document.getElementById('post-references').value;
+        const references = referencesRaw
+          .split('\n')
+          .map(line => line.replace(/^[\s•\-*]+/, '').trim())
+          .filter(Boolean);
+
+        const wordCount = content.split(/\s+/).length;
+        const autoTime = format === 'Script'
+          ? `${Math.max(2, Math.ceil(wordCount / 130))} MIN SCRIPT`
+          : `${Math.max(2, Math.ceil(wordCount / 200))} MIN READ`;
+
+        const nowLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        const targetId = editId || ('post-' + Date.now());
+        const existingPost = editId ? posts.find(p => p.id === editId) : null;
+
+        const postPayload = {
+          id: targetId,
           title,
           format,
           category,
-          date: nowLabel,
+          date: existingPost?.date || nowLabel,
           readTime: readTimeInput || autoTime,
           featured,
           image,
           summary,
-          content
-        });
-        showToast('New piece published to archive');
-      }
+          content,
+          references,
+          updatedAt: Date.now()
+        };
 
-      persistState();
-      renderAll();
-      resetPostForm();
-      closeStudioModal();
-    }
+        const batch = writeBatch(db);
+        if (featured) {
+          posts.forEach(p => {
+            if (p.id !== targetId && p.featured) {
+              batch.set(doc(db, "posts", p.id), { ...p, featured: false });
+            }
+          });
+        }
+        batch.set(doc(db, "posts", targetId), postPayload);
+        await batch.commit();
+
+        showToast(editId ? 'Live piece updated in cloud' : 'Published live to public site');
+        resetPostForm();
+        closeStudioModal();
+      } catch (err) {
+        console.error(err);
+        showToast('Error saving to Firebase: ' + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Publish Live to Cloud';
+      }
+    };
 
     function renderStudioLibrary() {
       const list = document.getElementById('studio-library-list');
@@ -1578,6 +1467,7 @@
               <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-moss text-lichen">${escapeHtml(post.format)}</span>
               <span class="font-mono text-[10px] text-stone">${escapeHtml(post.category)}</span>
               ${post.featured ? '<span class="font-mono text-[10px] px-2 py-0.5 rounded bg-parchment text-forest font-semibold">FEATURED</span>' : ''}
+              ${Array.isArray(post.references) && post.references.length > 0 ? `<span class="font-mono text-[10px] px-2 py-0.5 rounded bg-lichen/15 text-lichen">${post.references.length} REFS</span>` : ''}
             </div>
             <h4 class="font-serif text-lg text-cream">${escapeHtml(post.title)}</h4>
           </div>
@@ -1593,46 +1483,36 @@
       `).join('');
     }
 
-    function deletePost(id) {
-      posts = posts.filter(p => p.id !== id);
-      persistState();
-      renderAll();
-      showToast('Item removed from archive');
-    }
+    window.deletePost = async function(id) {
+      if (!currentUser) return;
+      try {
+        await deleteDoc(doc(db, "posts", id));
+        showToast('Removed from live archive');
+      } catch (err) {
+        showToast('Delete failed: ' + err.message);
+      }
+    };
 
-    function restoreSampleData() {
-      posts = [...DEFAULT_POSTS];
-      persistState();
-      renderAll();
-      showToast('Default sample archive restored');
-    }
+    window.saveBrandSettings = async function() {
+      if (!currentUser) return;
+      const updated = {
+        brand: document.getElementById('setting-brand').value.trim() || DEFAULT_SETTINGS.brand,
+        masthead: document.getElementById('setting-masthead').value.trim() || DEFAULT_SETTINGS.masthead,
+        bio: document.getElementById('setting-bio').value.trim() || DEFAULT_SETTINGS.bio
+      };
+      try {
+        await setDoc(doc(db, "settings", "site"), updated);
+        showToast('Masthead & manifesto updated live');
+      } catch (err) {
+        showToast('Error updating settings: ' + err.message);
+      }
+    };
 
-    function saveBrandSettings() {
-      settings.brand = document.getElementById('setting-brand').value.trim() || DEFAULT_SETTINGS.brand;
-      settings.masthead = document.getElementById('setting-masthead').value.trim() || DEFAULT_SETTINGS.masthead;
-      settings.bio = document.getElementById('setting-bio').value.trim() || DEFAULT_SETTINGS.bio;
-      persistState();
-      applySettingsToUI();
-      showToast('Masthead & manifesto updated');
-    }
-
-    // Export standalone HTML file with current posts & brand baked in for public hosting
-    function exportUpdatedSite() {
-      // Close modals cleanly before serializing DOM
+    window.exportUpdatedSite = function() {
       closeStudioModal();
       closeReaderModal();
 
-      // Inject current state directly into the exported file's script defaults
       let htmlSource = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      htmlSource = htmlSource.replace(
-        /const DEFAULT_POSTS = \[[\s\S]*?\];/,
-        `const DEFAULT_POSTS = ${JSON.stringify(posts, null, 2)};`
-      );
-      htmlSource = htmlSource.replace(
-        /const DEFAULT_SETTINGS = \{[\s\S]*?\};/,
-        `const DEFAULT_SETTINGS = ${JSON.stringify(settings, null, 2)};`
-      );
-
       const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1642,8 +1522,8 @@
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Downloaded index.html ready for public hosting');
-    }
+      showToast('Downloaded HTML snapshot');
+    };
 
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -1668,228 +1548,8 @@
         .replace(/'/g, '&#039;');
     }
 
-    window.onload = initApp;
+    loadLocalFallback();
+    startCloudListeners();
   </script>
-
-
-<script async="" src="/.netlify/scripts/ar" data-netlify-deploy-id="6b068c718101128aba283040" data-netlify-site-id="ddf7cf0e-07f6-41f1-93c6-d72beff43e7a" data-agent-runner-id="6b068adbf2b9dd883d652444"></script>
-<script async="" src="/.netlify/scripts/hud?variant=owner-private" data-nf-variant="owner-private" data-netlify-site-id="ddf7cf0e-07f6-41f1-93c6-d72beff43e7a" data-app-host="app.netlify.com"></script>
-<iframe id="nl-hud-frame" title="Netlify" srcdoc="&lt;!doctype html&gt;&lt;html class=&quot;nl-mini-state&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;color-scheme&quot; content=&quot;dark&quot;&gt;&lt;style&gt;
-    :root{--nl-vw:1470px;--nl-vh:835px}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:transparent;overflow:hidden}
-    body{display:flex;align-items:flex-end;justify-content:flex-end;height:100vh;
-      padding:8px 18px 18px 8px;
-      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#f4f9f9;-webkit-font-smoothing:antialiased}
-    .nl-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:10px;width:max-content;max-width:calc(var(--nl-vw,100vw) - 26px)}
-    button{font-family:inherit;cursor:pointer}
-    :focus-visible{outline:2px solid #32e6e2;outline-offset:2px;border-radius:6px}
-    .nl-icon-btn{position:relative;flex:none;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid transparent;background:transparent;color:#d5e3e6;transition:background .15s ease,color .15s ease}
-    .nl-icon-btn:hover{background:rgba(255,255,255,0.08);color:#f4f9f9}
-    .nl-tap::after{content:&quot;&quot;;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      width:max(100%,44px);height:max(100%,44px)}
-    @keyframes nl-rise{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
-    @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition:none!important}}
-  
-      .nl-popover{display:none;width:min(320px,calc(var(--nl-vw,100vw) - 26px));max-height:calc(var(--nl-vh,100vh) - 90px);overflow-y:auto;background:linear-gradient(180deg,#132832 0%,#0e1e25 100%);border:1px solid rgba(255,255,255,0.09);border-radius:18px;transform-origin:bottom right;animation:nl-rise .28s cubic-bezier(.34,1.4,.4,1) both}
-      .nl-popover.open{display:block}
-      .nl-popover-head{display:flex;align-items:center;gap:9px;padding:13px 12px 5px 16px}
-      .nl-popover-icon{display:inline-flex;color:#32e6e2}
-      .nl-popover-title{flex:1;font-size:13.5px;font-weight:700;letter-spacing:-0.01em;color:#f4f9f9}
-      .nl-popover-body{padding:0 16px 12px}
-      .nl-task{display:flex;align-items:center;gap:10px;padding:11px 0}
-      .nl-task+.nl-task{border-top:1px solid rgba(255,255,255,0.06)}
-      .nl-task-meta{flex:1;min-width:0}
-      .nl-task-title{font-size:13.5px;font-weight:650;color:#f4f9f9}
-      .nl-task-desc{font-size:11.5px;color:#a9bdc2}
-      .nl-task-run{flex:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none;border:1px solid rgba(50,230,226,0.35);background:transparent;color:#32e6e2;font-size:12px;font-weight:700;border-radius:999px;padding:6px 13px;transition:background .15s ease,transform .15s cubic-bezier(.34,1.4,.4,1)}
-      .nl-task-run:hover{background:rgba(5,189,186,0.12);transform:translateY(-1px)}
-      .nl-bar,.nl-mini{-webkit-user-select:none;user-select:none}
-      .nl-bar{display:flex;align-items:center;gap:2px;white-space:nowrap;border:1px solid rgba(255,255,255,0.09);background:linear-gradient(180deg,#142b34,#0e1e25);border-radius:999px;padding:7px 8px 7px 14px;color:#f4f9f9}
-      .nl-logo{flex:none;margin-right:8px;display:inline-flex}
-      .nl-status{display:inline-flex;align-items:center;gap:5px;border:0;background:transparent;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:0.01em;color:#fbbf24;padding:6px 5px;border-radius:8px;transition:background .15s ease}
-      .nl-status:hover,.nl-status[aria-expanded='true']{background:rgba(251,191,36,0.12)}
-      .nl-tip{display:none;align-self:flex-start;width:min(300px,calc(var(--nl-vw,100vw) - 26px));background:linear-gradient(180deg,#132832 0%,#0e1e25 100%);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:12px 14px;font-size:12px;line-height:1.5;color:#d5e3e6;animation:nl-rise .2s cubic-bezier(.34,1.4,.4,1) both}
-      .nl-tip.open{display:block}
-      .nl-tip a{display:flex;width:fit-content;align-items:center;gap:4px;margin-top:8px;color:#32e6e2;text-decoration:none;font-weight:650}
-      .nl-tip a:hover{text-decoration:underline}
-      .nl-sep{width:1px;height:18px;background:rgba(255,255,255,0.09);margin:0 10px 0 12px;flex:none}
-      .nl-btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:0;background:transparent;color:#d5e3e6;font-family:inherit;font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;transition:background .15s ease,color .15s ease}
-      .nl-btn svg{color:#32e6e2}
-      .nl-btn:hover{background:rgba(255,255,255,0.07);color:#f4f9f9}
-      .nl-btn[aria-expanded='true']{background:rgba(255,255,255,0.1);color:#f4f9f9}
-      .nl-publish{display:inline-flex;align-items:center;gap:7px;text-decoration:none;margin-left:6px;background:#05bdba;color:#02191b;font-size:13px;font-weight:700;padding:8px 15px;border-radius:999px;transition:background .15s ease,transform .15s cubic-bezier(.34,1.4,.4,1)}
-      .nl-publish:hover{background:#32e6e2;transform:translateY(-1px)}
-      .nl-min{margin-left:6px}
-
-      /* ——— Minimized ——— */
-      .nl-bar,.nl-mini{min-height:52px}
-      .nl-mini{display:none;align-items:center;gap:2px;border:1px solid rgba(255,255,255,0.09);background:linear-gradient(180deg,#142b34,#0e1e25);border-radius:999px;padding:5px 5px 5px 13px;cursor:pointer}
-      .nl-mini-state .nl-mini{display:flex}
-      .nl-mini-state .nl-bar,.nl-mini-state .nl-popover,.nl-mini-state .nl-tip{display:none}
-      .nl-mini-brand{display:inline-flex;align-items:center;gap:7px;padding-right:8px}
-      .nl-mini-lock{display:inline-flex;color:#fbbf24}
-
-      /* ——— Narrow layout ——— */
-      .nl-narrow .nl-shrinks{position:absolute;width:1px;height:1px;overflow:hidden;
-        clip-path:inset(50%);white-space:nowrap}
-      .nl-narrow .nl-status{gap:0}
-      .nl-narrow .nl-bar{padding:6px 6px 6px 10px}
-      .nl-narrow .nl-logo{margin-right:6px}
-      .nl-narrow .nl-sep{margin:0 6px 0 8px}
-      .nl-narrow .nl-btn{padding:8px 9px}
-      .nl-narrow .nl-publish{margin-left:4px;padding:8px 11px}
-    &lt;/style&gt;&lt;/head&gt;&lt;body&gt;
-      &lt;div class=&quot;nl-wrap&quot;&gt;
-        &lt;section class=&quot;nl-popover&quot; id=&quot;nl-pop&quot; aria-label=&quot;Pre-launch tools&quot;&gt;
-          &lt;div class=&quot;nl-popover-head&quot;&gt;
-            &lt;span class=&quot;nl-popover-icon&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M7.98407 9.625L8.58935 11.0952C8.62792 11.1889 8.71922 11.25 8.82053 11.25H9.77587C9.88268 11.25 9.95527 11.1415 9.91454 11.0428L7.3828 4.90468C7.3442 4.81107 7.25294 4.75 7.15169 4.75H6.34295C6.24163 4.75 6.15033 4.81115 6.11177 4.90484L3.58524 11.0429C3.54461 11.1416 3.61719 11.25 3.72395 11.25H4.67399C4.7753 11.25 4.86659 11.1889 4.90516 11.0952L5.51045 9.625H7.98407ZM7.46943 8.375L6.74726 6.62092L6.02508 8.375H7.46943Z&quot;/&gt;&lt;path d=&quot;M10.75 11.25C10.6119 11.25 10.5 11.1381 10.5 11V5C10.5 4.86193 10.6119 4.75 10.75 4.75H11.5C11.6381 4.75 11.75 4.86193 11.75 5V11C11.75 11.1381 11.6381 11.25 11.5 11.25H10.75Z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M0 5.5C0 2.73858 2.23858 0.5 5 0.5H11C13.7614 0.5 16 2.73858 16 5.5V10.5C16 13.2614 13.7614 15.5 11 15.5H5C2.23858 15.5 0 13.2614 0 10.5V5.5ZM5 1.75H11C13.0711 1.75 14.75 3.42893 14.75 5.5V10.5C14.75 12.5711 13.0711 14.25 11 14.25H5C2.92893 14.25 1.25 12.5711 1.25 10.5V5.5C1.25 3.42893 2.92893 1.75 5 1.75Z&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;
-            &lt;span class=&quot;nl-popover-title&quot;&gt;Pre-launch tools&lt;/span&gt;
-            &lt;button type=&quot;button&quot; class=&quot;nl-icon-btn nl-tap&quot; id=&quot;nl-pop-close&quot; aria-label=&quot;Close&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4.5 4.5 11.5 11.5M11.5 4.5 4.5 11.5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;nl-popover-body&quot;&gt;
-            
-      &lt;div class=&quot;nl-task&quot;&gt;
-        &lt;div class=&quot;nl-task-meta&quot;&gt;&lt;div class=&quot;nl-task-title&quot;&gt;SEO / GEO audit&lt;/div&gt;&lt;div class=&quot;nl-task-desc&quot;&gt;Check that Google and AI assistants can find and read your site.&lt;/div&gt;&lt;/div&gt;
-        &lt;a class=&quot;nl-task-run&quot; href=&quot;https://app.netlify.com/projects/ddf7cf0e-07f6-41f1-93c6-d72beff43e7a/overview?promptTemplate=d7bd9353-a6a3-442d-86f0-9b15488f68c3&amp;from_hud=private&amp;hud_action=ar_task&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5.68 9.925 4.607 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1zM9.96 9.925 8.886 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M9.005 2.52v1.296h2.657a3.19 3.19 0 0 1 3.191 3.192v3.356a3.19 3.19 0 0 1-3.191 3.191H4.338a3.19 3.19 0 0 1-3.191-3.19V7.007a3.19 3.19 0 0 1 3.191-3.192h2.836V2.52l.229-.245h1.373zM4.338 5.316c-.934 0-1.691.758-1.691 1.692v3.356c0 .934.758 1.691 1.691 1.691h7.324c.933 0 1.69-.757 1.691-1.69V7.007c0-.934-.757-1.692-1.691-1.692z&quot;/&gt;&lt;/svg&gt; Run&lt;/a&gt;
-      &lt;/div&gt;
-            
-      &lt;div class=&quot;nl-task&quot;&gt;
-        &lt;div class=&quot;nl-task-meta&quot;&gt;&lt;div class=&quot;nl-task-title&quot;&gt;Performance check&lt;/div&gt;&lt;div class=&quot;nl-task-desc&quot;&gt;See how fast your pages load, and what is slowing them down.&lt;/div&gt;&lt;/div&gt;
-        &lt;a class=&quot;nl-task-run&quot; href=&quot;https://app.netlify.com/projects/ddf7cf0e-07f6-41f1-93c6-d72beff43e7a/overview?promptTemplate=f8ef80a5-be9b-494d-9fac-a4ac5d5689a4&amp;from_hud=private&amp;hud_action=ar_task&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5.68 9.925 4.607 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1zM9.96 9.925 8.886 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M9.005 2.52v1.296h2.657a3.19 3.19 0 0 1 3.191 3.192v3.356a3.19 3.19 0 0 1-3.191 3.191H4.338a3.19 3.19 0 0 1-3.191-3.19V7.007a3.19 3.19 0 0 1 3.191-3.192h2.836V2.52l.229-.245h1.373zM4.338 5.316c-.934 0-1.691.758-1.691 1.692v3.356c0 .934.758 1.691 1.691 1.691h7.324c.933 0 1.69-.757 1.691-1.69V7.007c0-.934-.757-1.692-1.691-1.692z&quot;/&gt;&lt;/svg&gt; Run&lt;/a&gt;
-      &lt;/div&gt;
-            
-      &lt;div class=&quot;nl-task&quot;&gt;
-        &lt;div class=&quot;nl-task-meta&quot;&gt;&lt;div class=&quot;nl-task-title&quot;&gt;Security audit&lt;/div&gt;&lt;div class=&quot;nl-task-desc&quot;&gt;Look for common weak spots, like out-of-date code or open settings.&lt;/div&gt;&lt;/div&gt;
-        &lt;a class=&quot;nl-task-run&quot; href=&quot;https://app.netlify.com/projects/ddf7cf0e-07f6-41f1-93c6-d72beff43e7a/overview?promptTemplate=5f50f746-2ba1-4a3d-8a47-1a515f4420eb&amp;from_hud=private&amp;hud_action=ar_task&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5.68 9.925 4.607 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1zM9.96 9.925 8.886 8.85l-.013-.379 1.1-1.1.38.012 1.075 1.075.012.379-1.1 1.1z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M9.005 2.52v1.296h2.657a3.19 3.19 0 0 1 3.191 3.192v3.356a3.19 3.19 0 0 1-3.191 3.191H4.338a3.19 3.19 0 0 1-3.191-3.19V7.007a3.19 3.19 0 0 1 3.191-3.192h2.836V2.52l.229-.245h1.373zM4.338 5.316c-.934 0-1.691.758-1.691 1.692v3.356c0 .934.758 1.691 1.691 1.691h7.324c.933 0 1.69-.757 1.691-1.69V7.007c0-.934-.757-1.692-1.691-1.692z&quot;/&gt;&lt;/svg&gt; Run&lt;/a&gt;
-      &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/section&gt;
-        &lt;div class=&quot;nl-mini&quot; id=&quot;nl-mini&quot;&gt;
-          &lt;span class=&quot;nl-mini-brand&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;-45.625 -47.625 456.25 456.25&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M122.608 207.222V298.975C122.608 301.415 123.574 303.775 125.317 305.518L177.467 357.668C181.06 361.261 186.932 361.261 190.525 357.668L232.675 315.519C236.268 311.926 236.268 306.053 232.675 302.434L133.119 202.878C129.231 198.99 122.608 201.726 122.608 207.222Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M232.675 44.8449L190.525 2.69468C186.932 -0.898228 181.06 -0.898228 177.467 2.69468L125.317 54.846C123.574 56.5889 122.608 58.922 122.608 61.362V153.115C122.608 158.584 129.231 161.346 133.119 157.459L232.675 57.9031C236.268 54.3101 236.268 48.4385 232.675 44.8187V44.8449Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M307.482 126.543L151.056 174.243C145.238 176.012 145.238 184.243 151.056 186.013L307.482 233.713C310.726 234.705 314.319 233.82 316.706 231.407L361.483 186.629C365.076 183.036 365.076 177.165 361.483 173.545L316.706 128.767C314.292 126.354 310.753 125.469 307.482 126.462V126.515V126.543Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path d=&quot;M48.6878 131.481L6.52195 173.647C2.91992 177.249 2.91992 183.089 6.52195 186.691L48.6883 228.857C52.2903 232.459 58.1302 232.459 61.7322 228.857L103.898 186.691C107.5 183.089 107.5 177.249 103.898 173.647L61.7317 131.481C58.1297 127.879 52.2899 127.879 48.6878 131.481Z&quot; fill=&quot;white&quot;/&gt;&lt;/svg&gt;&lt;span class=&quot;nl-mini-lock&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; fill-rule=&quot;evenodd&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M8 1.5A3.5 3.5 0 0 0 4.5 5v2H4A1.5 1.5 0 0 0 2.5 8.5v4A1.5 1.5 0 0 0 4 14h8a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 7h-.5V5A3.5 3.5 0 0 0 8 1.5zm2 5.5V5a2 2 0 1 0-4 0v2h4z&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;
-          &lt;button type=&quot;button&quot; class=&quot;nl-icon-btn nl-tap nl-mini-open&quot; id=&quot;nl-mini-open&quot;
-                  aria-label=&quot;Show Netlify site tools&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M12 4.5 8.5 8 12 11.5M7.5 4.5 4 8 7.5 11.5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
-          &lt;button type=&quot;button&quot; class=&quot;nl-icon-btn nl-tap nl-mini-hide&quot; id=&quot;nl-mini-hide&quot;
-                  aria-label=&quot;Hide Netlify tools on this site&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.9&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4.5 4.5 11.5 11.5M11.5 4.5 4.5 11.5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;section class=&quot;nl-tip&quot; id=&quot;nl-tip&quot; aria-label=&quot;Project visibility&quot;&gt;
-          This project is private - only your team and people you invite can view it.
-          &lt;a href=&quot;https://docs.netlify.com/manage/security/secure-access-to-sites/project-visibility/&quot;
-             target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Learn more &lt;span aria-hidden=&quot;true&quot;&gt;&amp;#8599;&lt;/span&gt;&lt;/a&gt;
-        &lt;/section&gt;
-        &lt;div class=&quot;nl-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Netlify site tools&quot;&gt;
-          &lt;span class=&quot;nl-logo&quot;&gt;&lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;-45.625 -47.625 456.25 456.25&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M122.608 207.222V298.975C122.608 301.415 123.574 303.775 125.317 305.518L177.467 357.668C181.06 361.261 186.932 361.261 190.525 357.668L232.675 315.519C236.268 311.926 236.268 306.053 232.675 302.434L133.119 202.878C129.231 198.99 122.608 201.726 122.608 207.222Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M232.675 44.8449L190.525 2.69468C186.932 -0.898228 181.06 -0.898228 177.467 2.69468L125.317 54.846C123.574 56.5889 122.608 58.922 122.608 61.362V153.115C122.608 158.584 129.231 161.346 133.119 157.459L232.675 57.9031C236.268 54.3101 236.268 48.4385 232.675 44.8187V44.8449Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M307.482 126.543L151.056 174.243C145.238 176.012 145.238 184.243 151.056 186.013L307.482 233.713C310.726 234.705 314.319 233.82 316.706 231.407L361.483 186.629C365.076 183.036 365.076 177.165 361.483 173.545L316.706 128.767C314.292 126.354 310.753 125.469 307.482 126.462V126.515V126.543Z&quot; fill=&quot;white&quot;/&gt;
-    &lt;path d=&quot;M48.6878 131.481L6.52195 173.647C2.91992 177.249 2.91992 183.089 6.52195 186.691L48.6883 228.857C52.2903 232.459 58.1302 232.459 61.7322 228.857L103.898 186.691C107.5 183.089 107.5 177.249 103.898 173.647L61.7317 131.481C58.1297 127.879 52.2899 127.879 48.6878 131.481Z&quot; fill=&quot;white&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;
-          &lt;button type=&quot;button&quot; class=&quot;nl-status&quot; id=&quot;nl-status&quot;
-                  aria-expanded=&quot;false&quot; aria-controls=&quot;nl-tip&quot;&gt;&lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; fill-rule=&quot;evenodd&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M8 1.5A3.5 3.5 0 0 0 4.5 5v2H4A1.5 1.5 0 0 0 2.5 8.5v4A1.5 1.5 0 0 0 4 14h8a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 7h-.5V5A3.5 3.5 0 0 0 8 1.5zm2 5.5V5a2 2 0 1 0-4 0v2h4z&quot;/&gt;&lt;/svg&gt;&lt;span class=&quot;nl-shrinks&quot;&gt;Private&lt;/span&gt;&lt;/button&gt;
-          &lt;span class=&quot;nl-sep&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-          &lt;a class=&quot;nl-btn&quot; href=&quot;https://app.netlify.com/projects/ddf7cf0e-07f6-41f1-93c6-d72beff43e7a/overview?modal=share&amp;from_hud=private&amp;hud_action=share&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M7.5636 8C6.94548 8.31953 6.24382 8.5 5.5 8.5C4.75618 8.5 4.05452 8.31953 3.4364 8H1.5L0.5 9V13L1.5 14H9.5L10.5 13V9L9.5 8H7.5636ZM8.87868 9.5H7.90075C7.16414 9.82186 6.35125 10 5.5 10C4.64875 10 3.83586 9.82186 3.09925 9.5H2.12132L2 9.62132V12.3787L2.12132 12.5H8.87868L9 12.3787V9.62132L8.87868 9.5Z&quot;/&gt;&lt;path d=&quot;M13.9999 10.1213V11.8463L12.2043 11.8481L12.0039 12.0357V13.1606L12.2043 13.3481H13.7955L13.7975 13.3463H14.7024L15.4999 12.5V9.5L14.5001 8.5001L12.2043 8.49976L12.0039 8.68726V9.81225L12.2043 9.99976L13.8786 10L13.9999 10.1213Z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M5.5 7C6.88071 7 8 5.88071 8 4.5C8 3.11929 6.88071 2 5.5 2C4.11929 2 3 3.11929 3 4.5C3 5.88071 4.11929 7 5.5 7ZM5.5 5.5C6.05228 5.5 6.5 5.05228 6.5 4.5C6.5 3.94772 6.05228 3.5 5.5 3.5C4.94772 3.5 4.5 3.94772 4.5 4.5C4.5 5.05228 4.94772 5.5 5.5 5.5Z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M13.7 5.1C13.7 6.25937 12.7594 7.2 11.6 7.2C10.4406 7.2 9.5 6.25937 9.5 5.1C9.5 3.94062 10.4406 3 11.6 3C12.7594 3 13.7 3.94062 13.7 5.1ZM11.6 5.7C11.9309 5.7 12.2 5.43095 12.2 5.1C12.2 4.76905 11.9309 4.5 11.6 4.5C11.2691 4.5 11 4.76905 11 5.1C11 5.43095 11.2691 5.7 11.6 5.7Z&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;nl-shrinks&quot;&gt;Share&lt;/span&gt;&lt;/a&gt;
-          &lt;button type=&quot;button&quot; class=&quot;nl-btn&quot; id=&quot;nl-tools&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;nl-pop&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M7.98407 9.625L8.58935 11.0952C8.62792 11.1889 8.71922 11.25 8.82053 11.25H9.77587C9.88268 11.25 9.95527 11.1415 9.91454 11.0428L7.3828 4.90468C7.3442 4.81107 7.25294 4.75 7.15169 4.75H6.34295C6.24163 4.75 6.15033 4.81115 6.11177 4.90484L3.58524 11.0429C3.54461 11.1416 3.61719 11.25 3.72395 11.25H4.67399C4.7753 11.25 4.86659 11.1889 4.90516 11.0952L5.51045 9.625H7.98407ZM7.46943 8.375L6.74726 6.62092L6.02508 8.375H7.46943Z&quot;/&gt;&lt;path d=&quot;M10.75 11.25C10.6119 11.25 10.5 11.1381 10.5 11V5C10.5 4.86193 10.6119 4.75 10.75 4.75H11.5C11.6381 4.75 11.75 4.86193 11.75 5V11C11.75 11.1381 11.6381 11.25 11.5 11.25H10.75Z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M0 5.5C0 2.73858 2.23858 0.5 5 0.5H11C13.7614 0.5 16 2.73858 16 5.5V10.5C16 13.2614 13.7614 15.5 11 15.5H5C2.23858 15.5 0 13.2614 0 10.5V5.5ZM5 1.75H11C13.0711 1.75 14.75 3.42893 14.75 5.5V10.5C14.75 12.5711 13.0711 14.25 11 14.25H5C2.92893 14.25 1.25 12.5711 1.25 10.5V5.5C1.25 3.42893 2.92893 1.75 5 1.75Z&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;nl-shrinks&quot;&gt;Pre-launch tools&lt;/span&gt;&lt;/button&gt;
-          &lt;a class=&quot;nl-publish&quot; href=&quot;https://app.netlify.com/projects/ddf7cf0e-07f6-41f1-93c6-d72beff43e7a/overview?modal=go-live&amp;from_hud=private&amp;hud_action=make_public&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M11.072 6C10.8557 5.99995 10.6443 5.93576 10.4644 5.81554C10.2846 5.69533 10.1444 5.52449 10.0617 5.32463C9.97895 5.12477 9.95733 4.90486 9.99956 4.69271C10.0418 4.48056 10.146 4.2857 10.299 4.13276C10.4519 3.97982 10.6468 3.87568 10.859 3.8335C11.0711 3.79132 11.291 3.81299 11.4909 3.89578C11.6907 3.97857 11.8615 4.11876 11.9817 4.29862C12.1019 4.47848 12.166 4.68994 12.166 4.90625C12.1658 5.19633 12.0505 5.47447 11.8454 5.67956C11.6402 5.88464 11.3621 5.9999 11.072 6Z&quot;/&gt;&lt;path fill-rule=&quot;evenodd&quot; clip-rule=&quot;evenodd&quot; d=&quot;M3.59279 4.5H6.77473L8.48034 2.74577L10.1619 1L14.4308 1.00686L15 1.59031V6.01763L11.5291 9.61732L11.78 12.4852L11.1608 13.7165L8.58695 15.2986L7.59043 14.7959L7.31674 11.6676L4.624 8.875H1.65598L1.06836 7.92609L2.42011 5.22418L3.59279 4.5ZM8.7673 11.037L8.96573 13.305L10.0122 12.6618L10.2486 12.1917L10.1476 11.037L8.7673 11.037ZM8.43037 10.6616L12.036 6.93056L13.5 5.41225V2.50537L10.7987 2.50103L10.0283 3.30089L5.69627 7.82603L8.43037 10.6616ZM5.27424 7.38834L5.35943 6H4.01862L3.57089 6.27649L3.02131 7.375H5.26138L5.27424 7.38834Z&quot;/&gt;&lt;path d=&quot;M2.05008 10.9935L3.79156 9.6874L4.81429 10.7954L3.17932 12.0216L2.95615 13.1374L4.07201 12.9143L5.28155 11.3016L6.31603 12.4222L5.10008 14.0435L4.64717 14.3289L2.14717 14.8289L1.26465 13.9464L1.76465 11.4464L2.05008 10.9935Z&quot;/&gt;&lt;/svg&gt; Make public&lt;/a&gt;
-          &lt;button type=&quot;button&quot; class=&quot;nl-icon-btn nl-tap nl-min&quot; id=&quot;nl-min&quot;
-                  aria-label=&quot;Minimize Netlify tools&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 4.5 7.5 8 4 11.5M8.5 4.5 12 8 8.5 11.5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;script&gt;
-        
-    function nlSend(){
-      var wrap=document.querySelector('.nl-wrap'),boxes=[];
-      for(var i=0;i&lt;wrap.children.length;i++){
-        var c=wrap.children[i];
-        if(!c.offsetWidth||!c.offsetHeight)continue;
-        boxes.push({x:c.offsetLeft-wrap.offsetLeft+8,
-                    y:c.offsetTop-wrap.offsetTop+8,
-                    w:c.offsetWidth,h:c.offsetHeight});
-      }
-      parent.postMessage({nlHud:'resize',
-        width:wrap.offsetWidth+26,
-        height:wrap.offsetHeight+26,
-        boxes:boxes},'*');
-    }
-    function nlSendSoon(){requestAnimationFrame(nlSend);}
-    window.addEventListener('load',nlSend);
-    window.addEventListener('message',function(e){
-      if(e.source!==parent||!e.data||e.data.nlHud!=='viewport')return;
-      var s=document.documentElement.style;
-      s.setProperty('--nl-vw',e.data.w+'px');
-      s.setProperty('--nl-vh',e.data.h+'px');
-      document.documentElement.classList.toggle('nl-narrow',e.data.w&lt;600);
-      nlSendSoon();
-    });
-    var nlCoarse=window.matchMedia('(pointer: coarse)').matches;
-    function nlSubmit(form){
-      if(form.requestSubmit)return form.requestSubmit();
-      if(form.checkValidity&amp;&amp;!form.checkValidity())
-        return form.reportValidity&amp;&amp;form.reportValidity();
-      form.submit();
-    }
-  
-        var btn=document.getElementById('nl-tools'),pop=document.getElementById('nl-pop');
-        function setOpen(open){
-          pop.classList.toggle('open',open);
-          btn.setAttribute('aria-expanded',open?'true':'false');
-          nlSendSoon();
-        }
-        btn.addEventListener('click',function(){setOpen(!pop.classList.contains('open'));});
-        document.getElementById('nl-pop-close').addEventListener('click',function(){setOpen(false);btn.focus();});
-
-        var statusBtn=document.getElementById('nl-status'),tip=document.getElementById('nl-tip'),tipTimer=null;
-        function setTip(open){
-          tip.classList.toggle('open',open);
-          statusBtn.setAttribute('aria-expanded',open?'true':'false');
-          nlSendSoon();
-        }
-        function openTip(){clearTimeout(tipTimer);setTip(true);}
-        function closeTipSoon(){clearTimeout(tipTimer);tipTimer=setTimeout(function(){setTip(false);},200);}
-        if(!nlCoarse){
-          statusBtn.addEventListener('mouseenter',openTip);
-          statusBtn.addEventListener('mouseleave',closeTipSoon);
-          tip.addEventListener('mouseenter',openTip);
-          tip.addEventListener('mouseleave',closeTipSoon);
-        }
-        statusBtn.addEventListener('focus',function(){
-          var keyboard;
-          try{keyboard=statusBtn.matches(':focus-visible');}catch(e){keyboard=!nlCoarse;}
-          if(keyboard)openTip();
-        });
-        statusBtn.addEventListener('blur',closeTipSoon);
-        statusBtn.addEventListener('click',function(){
-          clearTimeout(tipTimer);
-          setTip(nlCoarse ? !tip.classList.contains('open') : true);
-        });
-
-        var root=document.documentElement;
-        function setStage(value){
-          root.classList.toggle('nl-mini-state',value==='mini');
-          if(value==='mini'){setOpen(false);setTip(false);}
-          parent.postMessage({nlHud:'state',value:value},'*');
-          nlSendSoon();
-        }
-        document.getElementById('nl-min').addEventListener('click',function(){
-          setStage('mini');
-          document.getElementById('nl-mini-open').focus();
-        });
-        document.getElementById('nl-mini').addEventListener('click',function(e){
-          if(e.target.closest('#nl-mini-hide'))return;
-          setStage('');
-          document.getElementById('nl-min').focus();
-        });
-        document.getElementById('nl-mini-hide').addEventListener('click',function(){
-          parent.postMessage({nlHud:'state',value:'hidden'},'*');
-        });
-        document.addEventListener('keydown',function(e){
-          if(e.key!=='Escape')return;
-          if(tip.classList.contains('open')){setTip(false);statusBtn.focus();return;}
-          if(pop.classList.contains('open')){setOpen(false);btn.focus();}
-        });
-      &lt;/script&gt;
-    &lt;/body&gt;&lt;/html&gt;" style="position: fixed; bottom: 0px; right: 0px; border: 0px; margin: 0px; padding: 0px; background: transparent; color-scheme: dark; z-index: 2147483645; width: 156px; height: 78px; clip-path: path(&quot;M 3 3 H 143 V 65 H 3 Z&quot;);" data-nl-ready="1"></iframe></body></html>
+</body>
+</html>
